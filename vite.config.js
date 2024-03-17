@@ -8,6 +8,12 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
+                'Modules/Front/resources/assets/css/app.css',
+                'Modules/Front/resources/assets/js/app.js',
+                'Modules/User/resources/assets/css/app.css',
+                'Modules/User/resources/assets/js/app.js',
+                'Modules/Admin/resources/assets/css/app.css',
+                'Modules/Admin/resources/assets/js/app.js',
             ],
             refresh: true,
         }),
