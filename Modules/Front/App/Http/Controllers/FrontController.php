@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Front\App\Models\Menu;
 
 class FrontController extends Controller
 {
@@ -14,7 +15,8 @@ class FrontController extends Controller
      */
     public function index()
     {
-        return view('front::index');
+        $menus = Menu::all();
+        return view('front::index', ['menus' => $menus]);
     }
 
     /**

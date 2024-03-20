@@ -1,5 +1,6 @@
 import {createApp} from 'vue/dist/vue.esm-bundler';
 import HelloWorld from "./components/HelloWorld.vue";
+import HeaderVue from "./components/HeaderVue.vue";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import $ from 'jquery'
@@ -7,10 +8,11 @@ import axios from 'axios';
 
 const app = createApp({
     data:()=>({
-        infoApp : '(Laravel 10.43) (Vue 3)'
+        infoApp : '(Laravel 11) (Vue 3)'
     }),
     components:{
-        HelloWorld:HelloWorld
+        HelloWorld:HelloWorld,
+        HeaderVue:HeaderVue
     }
 })
 

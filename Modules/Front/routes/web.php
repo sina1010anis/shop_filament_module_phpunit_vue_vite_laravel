@@ -14,6 +14,6 @@ use Modules\Front\App\Http\Controllers\FrontController;
 |
 */
 
-Route::prefix('/front')->group(function (){
-    Route::get('/test', [FrontController::class, 'index']);
+Route::prefix('/')->as('front.')->group(function (){
+    Route::get('', [FrontController::class, 'index'])->name('index');
 });

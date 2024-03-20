@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const app = createApp({
     data:()=>({
-        infoApp : '(Laravel 10.43) (Vue 3)'
+        infoApp : '(Laravel 11) (Vue 3)'
     }),
     components:{
         HelloWorld:HelloWorld

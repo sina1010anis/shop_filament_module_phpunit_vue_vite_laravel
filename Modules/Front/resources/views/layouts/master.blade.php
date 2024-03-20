@@ -7,22 +7,26 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Front Module - {{ config('app.name', 'Laravel') }}</title>
+    <title>IRTree</title>
 
     <meta name="description" content="{{ $description ?? '' }}">
     <meta name="keywords" content="{{ $keywords ?? '' }}">
     <meta name="author" content="{{ $author ?? '' }}">
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    {{-- Vite CSS --}}
-    {{-- {{ module_vite('build-front', 'resources/assets/sass/app.scss') }} --}}
-    @vite('Modules/User/resources/assets/css/app.css')
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/my_style.css">
+    <link rel="shortcut icon" href="/storage/img_core/icons8-flower-48.png" />
+    @vite('Modules/Front/resources/assets/css/app.css')
 </head>
 
 <body>
-        @yield('content')
+    <div id="app">
+        <div class="container-fluid box-shape">
+            <div class="row">
+                @yield('content')
+            </div>
+        </div>
+    </div>
 </body>
-@vite('Modules/User/resources/assets/js/app.js')
+@vite('Modules/Front/resources/assets/js/app.js')

@@ -1,5 +1,5 @@
 <template>
-    <button class="btn btn-info" @click="test_app">test</button>
+    <button class="btn btn-info" @click="test_app">test ('User')</button>
 
 </template>
 
