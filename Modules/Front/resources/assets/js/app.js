@@ -10,6 +10,11 @@ const app = createApp({
     data:()=>({
         infoApp : '(Laravel 11) (Vue 3)'
     }),
+    methods:{
+        show_menu_pc(){
+            $('.slid-menus').stop().slideToggle()
+        }
+    },
     components:{
         HelloWorld:HelloWorld,
         HeaderVue:HeaderVue

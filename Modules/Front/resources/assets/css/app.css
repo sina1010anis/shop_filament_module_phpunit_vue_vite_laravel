@@ -4,3 +4,21 @@
 .pointer{
     cursor: pointer!important;
 }
+.back_logo{
+    width: 70px;
+    height: 70px;
+}
+.show-number-cart{
+    background-color: red;
+    width: 25px;
+    border-radius: 100%;
+    height: 25px;
+}
+.slid-menus{
+    position: absolute;
+    top: 80px;
+    background-color: #fff;
+    z-index: 15;
+    display: none;
+    left: 0;
+}

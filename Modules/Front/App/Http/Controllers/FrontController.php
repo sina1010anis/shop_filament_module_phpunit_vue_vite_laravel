@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Front\App\Models\Menu;
+use Modules\Front\App\Models\SubMenu;
 
 class FrontController extends Controller
 {
@@ -16,7 +17,15 @@ class FrontController extends Controller
     public function index()
     {
         $menus = Menu::all();
-        return view('front::index', ['menus' => $menus]);
+        $menus_slid = Menu::whereMode(2)->get();
+        return view('front::index', ['menus' => $menus, 'menus_slid' => $menus_slid]);
+    }
+
+    public function getDataMenu(Request $request)
+    {
+        $menus = SubMenu::whereMenu_id($request->id)->get();
+
+        return $menus;
     }
 
     /**
