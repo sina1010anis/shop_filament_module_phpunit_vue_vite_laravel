@@ -14,6 +14,10 @@ const app = createApp({
     methods:{
         show_menu_pc(){
             $('.slid-menus').stop().slideToggle()
+        },
+
+        show_menu_mobile(){
+            $('.slid-menus-mobile').stop().slideToggle()
         }
     },
     components:{

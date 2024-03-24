@@ -52,6 +52,11 @@
                 </div>
             </div>
         </div>
+        <div class="d-md-none slid-menus-mobile col-12 mt-2 shadow">
+            <div class="col-12 p-2 bg-white w-100">
+                <slot name="item_menu_mobile"></slot>
+            </div>
+        </div>
     </header>
 </template>
 

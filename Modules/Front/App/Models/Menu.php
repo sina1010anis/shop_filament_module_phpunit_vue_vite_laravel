@@ -14,4 +14,10 @@ class Menu extends Model
      * The attributes that are mass assignable.
      */
     protected $fillable = ['name', 'mode', 'src', 'link'];
+
+
+    public function sub_menus()
+    {
+        return $this->hasMany(SubMenu::class, 'menu_id', 'id');
+    }
 }
