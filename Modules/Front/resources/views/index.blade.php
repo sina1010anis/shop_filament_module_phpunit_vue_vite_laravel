@@ -24,5 +24,7 @@
 
         </template>
     </header-vue>
-    <p>slider</p>
+
+    <slider-vue>
+    </slider-vue>
 @endsection
