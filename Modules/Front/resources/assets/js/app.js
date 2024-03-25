@@ -2,6 +2,7 @@ import {createApp} from 'vue/dist/vue.esm-bundler';
 import HelloWorld from "./components/HelloWorld.vue";
 import HeaderVue from "./components/HeaderVue.vue";
 import SliderVue from "./components/SliderVue.vue";
+import ToperVue from "./components/ToperVue.vue";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import $ from 'jquery'
@@ -24,6 +25,7 @@ const app = createApp({
         HelloWorld:HelloWorld,
         HeaderVue:HeaderVue,
         SliderVue:SliderVue,
+        ToperVue:ToperVue,
     }
 })
 

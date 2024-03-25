@@ -38,4 +38,5 @@
     </header-vue>
 
     <slider-vue></slider-vue>
+    <toper-vue :menu_1="{{$menus->find(6)->sub_menus->take(2)}}" :menu_2="{{$menus->find(10)->sub_menus->take(2)}}"></toper-vue>
 @endsection
