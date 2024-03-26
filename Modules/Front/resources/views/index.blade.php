@@ -1,7 +1,9 @@
 @extends('front::layouts.master')
 
 @section('content')
+
     <header-vue :menus_slid="{{$menus_slid}}">
+
         <template #menus>
             @foreach ($menus as $menu)
                     @if($menu->mode == 1)
@@ -38,7 +40,27 @@
     </header-vue>
 
     <slider-vue :images="{{$images}}"></slider-vue>
+
     <toper-vue :menu_1="{{$menus->find(6)->sub_menus->take(2)}}" :menu_2="{{$menus->find(10)->sub_menus->take(2)}}"></toper-vue>
+
     <product-vue :title="'جدیدترین محصولات'" :image="'view_box_product.png'" :products="{{$products}}"></product-vue>
+
     <banner-vue :image="{{$banner->find(1)}}"></banner-vue>
+
+    <product-vue :title="'پرفروشترین محصولات'" :image="'view_box_product.png'" :products="{{$products}}"></product-vue>
+
+    <banner-vue :image="{{$banner->find(1)}}"></banner-vue>
+
+    <product-vue :title="'خاصترین محصولات'" :image="'view_box_product.png'" :products="{{$products}}"></product-vue>
+
+    <banner-vue :image="{{$banner->find(1)}}"></banner-vue>
+
+    <product-vue :title="'پرترفدارترین محصولات'" :image="'view_box_product.png'" :products="{{$products}}"></product-vue>
+
+    <product-vue :title="'زیباترین محصولات'" :image="'view_box_product.png'" :products="{{$products}}"></product-vue>
+
+    <product-vue :title="'بیشترین محصولات'" :image="'view_box_product.png'" :products="{{$products}}"></product-vue>
+
+    <footer-vue></footer-vue>
+
 @endsection
