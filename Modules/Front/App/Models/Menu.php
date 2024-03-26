@@ -20,4 +20,10 @@ class Menu extends Model
     {
         return $this->hasMany(SubMenu::class, 'menu_id', 'id');
     }
+
+    public function products(){
+
+        return $this->hasMany(Product::class, 'menu_id', 'id');
+
+    }
 }

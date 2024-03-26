@@ -1,13 +1,11 @@
 <template>
     <div class="col-12 box-slider slider m-0 p-0 overflow-hidden">
-        <div>
-            <img src="/storage/img_core/index_page.jpeg" alt="Slider" class="w-100 h-100">
-        </div>
-        <div class="carousel-item active">
-            <img src="/storage/img_core/index_page.jpeg" alt="Slider" class="w-100 h-100">
-        </div>
-        <div class="carousel-item active">
-            <img src="/storage/img_core/index_page.jpeg" alt="Slider" class="w-100 h-100">
+        <div v-for="(image, index) in images" @key="index">
+            <a v-if="image.mode == 1" :href="image.link">
+                <img :src="image.src" :alt="image.name" class="w-100 h-100">
+            </a>
+            <img v-else :src="image.src" :alt="image.name" class="w-100 h-100">
+
         </div>
     </div>
 
@@ -27,6 +25,9 @@ export default {
             autoplay: true,
             autoplaySpeed: 3000,
         })
+    },
+    props:{
+        images:Object
     }
 }
 </script>

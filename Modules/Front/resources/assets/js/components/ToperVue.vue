@@ -7,7 +7,7 @@
                     <img :src="menu.src" :alt="menu.name" class="w-78 h-75  my-obj-center">
                 </div>
                 <div class="back_box_toper w-100 h-25 my-pos-rel">
-                    <h4 class="my-obj-center my-color-b-800 my-font-IYB">{{ menu.name }}</h4>
+                    <h4 class="my-obj-center my-color-b-800 my-font-IYB">خرید {{ menu.name }}</h4>
                 </div>
             </a>
         </div>
@@ -17,7 +17,7 @@
                     <img :src="menu2.src" :alt="menu2.name" class="w-78 h-75  my-obj-center">
                 </div>
                 <div class="back_box_toper w-100 h-25 my-pos-rel">
-                    <h4 class="my-obj-center my-color-b-800 my-font-IYB">{{ menu2.name }}</h4>
+                    <h4 class="my-obj-center my-color-b-800 my-font-IYB">خرید {{ menu2.name }}</h4>
                 </div>
             </a>
         </div>
@@ -31,7 +31,7 @@
                     <img :src="menu.src" :alt="menu.name" class="w-78 h-75  my-obj-center">
                 </div>
                 <div class="back_box_toper w-100 h-25 my-pos-rel">
-                    <h4 class="my-obj-center my-color-b-800 my-font-IYB">{{ menu.name }}</h4>
+                    <h4 class="my-obj-center my-color-b-800 my-font-IYB">خرید {{ menu.name }}</h4>
                 </div>
             </a>
         </div>
@@ -41,7 +41,7 @@
                     <img :src="menu2.src" :alt="menu2.name" class="w-78 h-75  my-obj-center">
                 </div>
                 <div class="back_box_toper w-100 h-25 my-pos-rel">
-                    <h4 class="my-obj-center my-color-b-800 my-font-IYB">{{ menu2.name }}</h4>
+                    <h4 class="my-obj-center my-color-b-800 my-font-IYB">خرید {{ menu2.name }}</h4>
                 </div>
             </a>
         </div>

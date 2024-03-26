@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Front\App\Models\Banner;
+use Modules\Front\App\Models\ImageSlider;
 use Modules\Front\App\Models\Menu;
+use Modules\Front\App\Models\Product;
 use Modules\Front\App\Models\SubMenu;
 
 class FrontController extends Controller
@@ -18,7 +21,10 @@ class FrontController extends Controller
     {
         $menus = Menu::all();
         $menus_slid = Menu::whereMode(2)->get();
-        return view('front::index', ['menus' => $menus, 'menus_slid' => $menus_slid]);
+        $products = Product::latest('id')->take(10)->get();
+        $images_slider = ImageSlider::all();
+        $banner = Banner::query();
+        return view('front::index', ['menus' => $menus, 'menus_slid' => $menus_slid, 'products'=>$products, 'images'=>$images_slider, 'banner' => $banner]);
     }
 
     public function getDataMenu(Request $request)

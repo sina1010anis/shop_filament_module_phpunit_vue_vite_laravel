@@ -3,6 +3,8 @@ import HelloWorld from "./components/HelloWorld.vue";
 import HeaderVue from "./components/HeaderVue.vue";
 import SliderVue from "./components/SliderVue.vue";
 import ToperVue from "./components/ToperVue.vue";
+import ProductVue from "./components/ProductVue.vue";
+import BannerVue from "./components/BannerVue.vue";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import $ from 'jquery'
@@ -26,6 +28,8 @@ const app = createApp({
         HeaderVue:HeaderVue,
         SliderVue:SliderVue,
         ToperVue:ToperVue,
+        ProductVue:ProductVue,
+        BannerVue:BannerVue,
     }
 })
 

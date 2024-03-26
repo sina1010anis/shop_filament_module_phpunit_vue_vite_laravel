@@ -12,4 +12,16 @@ class Product extends Model
 
     protected $fillable = ['name', 'smal_body', 'big_body', 'index_image', 'price'];
 
+    public function menu(){
+
+        return $this->belongsTo(Menu::class, 'menu_id', 'id');
+
+    }
+
+    public function sub_menu(){
+
+        return $this->belongsTo(SubMenu::class, 'sub_menu_id', 'id');
+
+    }
+
 }
