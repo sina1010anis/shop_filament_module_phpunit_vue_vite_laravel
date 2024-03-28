@@ -6,6 +6,7 @@ import ToperVue from "./components/ToperVue.vue";
 import ProductVue from "./components/ProductVue.vue";
 import BannerVue from "./components/BannerVue.vue";
 import FooterVue from "./components/FooterVue.vue";
+import ShowProductVue from "./components/ShowProductVue.vue";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import $ from 'jquery'
@@ -32,6 +33,7 @@ const app = createApp({
         ProductVue:ProductVue,
         BannerVue:BannerVue,
         FooterVue:FooterVue,
+        ShowProductVue:ShowProductVue,
     }
 })
 

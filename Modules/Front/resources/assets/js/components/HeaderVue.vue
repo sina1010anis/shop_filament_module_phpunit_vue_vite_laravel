@@ -1,6 +1,4 @@
 <template>
-
-
     <header>
         <div class="box-cart rounded-3 shadow border row overflow-hidden m-0 p-0">
             <div class="col-12 p-2 toper-cart-1 d-flex justify-content-center align-items-center">
