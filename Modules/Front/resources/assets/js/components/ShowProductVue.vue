@@ -67,8 +67,99 @@
                 <span class="my-font-IYB my-f-14 text-danger">! لطفا یک سایز گلدان انتخاب کنید</span>
                 <a href="" class="shadow my-btn-g py-2 rounded px-4 my-font-IYM">اضافه به سبد خرید</a>
             </div>
+            <div class="d-flex justify-content-around flex-md-row flex-column align-items-center">
+                <div class="my-2 my-md-3">
+                    <span class="my-f-12 my-font-IYB mx-2  my-color-b-500" style="position: relative; bottom: 9px;">ارسال رایگان در شهر</span>
+                    <i class="bi bi-truck " style="font-size: 30px;color: #00ab00;"></i>
+                </div>
+                <div class="my-2 my-md-3">
+                    <span class="my-f-12 my-font-IYB mx-2  my-color-b-500" style="position: relative; bottom: 9px;">مرجوع کالا 72 ساعت</span>
+                    <i class="bi bi-clock " style="font-size: 30px;color: #00ab00;"></i>
+                </div>
+                <div class="my-2 my-md-3">
+                    <span class="my-f-12 my-font-IYB mx-2  my-color-b-500" style="position: relative; bottom: 9px;">پرداخت ایمن</span>
+                    <i class="bi bi-credit-card " style="font-size: 30px;color: #00ab00;"></i>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="row col-12 m-0 p-0">
+        <div class="col-12 p-2 d-flex justify-content-evenly align-items-center">
+            <span class="mx-2 my-pointer my-f-15 my-font-IYM my-color-b-900 py-4 px-2 select-item-desc">توضیحات</span>
+            <span class="mx-2 my-pointer my-f-15 my-font-IYM my-color-b-900 py-4 px-2">بازبینی</span>
+            <span class="mx-2 my-pointer my-f-15 my-font-IYM my-color-b-900 py-4 px-2">کامنت ها</span>
+        </div>
+        <div class="col-12 desc-big" dir="rtl">
+            <span class="my-f-13 p-2 my-color-b-600 my-font-IYB" style="line-height: 35px;">برای تفسیر آزمایش خون یا ادرار هیچکس مانند پزشک نمی‌تواند به شما کمک کند. زیرا تنها با نتیجه آزمایش نمی‌توان در مورد بیماری یا میزان پیشرفت درمان اظهار نظر کرد و شرایط دیگر هم در آن موثرند. همچنین نتیجه آزمایشات در بیشتر مواقع به فاکتورهایی مانند سن و جنسیت نیز بستگی دارد. با هومکا همراه شوید تا بیشتر در رابطه با نحوه تفسیر آزمایش و خواندن جواب آزمایش بدانید.برای تفسیر آزمایش خون یا ادرار هیچکس مانند پزشک نمی‌تواند به شما کمک کند. زیرا تنها با نتیجه آزمایش نمی‌توان در مورد بیماری یا میزان پیشرفت درمان اظهار نظر کرد و شرایط دیگر هم در آن موثرند. همچنین نتیجه آزمایشات در بیشتر مواقع به فاکتورهایی مانند سن و جنسیت نیز بستگی دارد. با هومکا همراه شوید تا بیشتر در رابطه با نحوه تفسیر آزمایش و خواندن جواب آزمایش بدانید.برای تفسیر آزمایش خون یا ادرار هیچکس مانند پزشک نمی‌تواند به شما کمک کند. زیرا تنها با نتیجه آزمایش نمی‌توان در مورد بیماری یا میزان پیشرفت درمان اظهار نظر کرد و شرایط دیگر هم در آن موثرند. همچنین نتیجه آزمایشات در بیشتر مواقع به فاکتورهایی مانند سن و جنسیت نیز بستگی دارد. با هومکا همراه شوید تا بیشتر در رابطه با نحوه تفسیر آزمایش و خواندن جواب آزمایش بدانید.</span>
+        </div>
+        <div class="col-12 rev-big" dir="rtl">
+            <span class="my-f-13 p-2 my-color-b-600 my-font-IYB" style="line-height: 35px;">برای تفسیر آزمایش خون یا ادرار هیچکس مانند پزشک نمی‌تواند به شما کمک کند. زیرا تنها با نتیجه آزمایش نمی‌توان در مورد بیماری یا میزان پیشرفت درمان اظهار نظر کرد و شرایط دیگر هم در آن موثرند. همچنین نتیجه آزمایشات در بیشتر مواقع به فاکتورهایی مانند سن و جنسیت نیز بستگی دارد. با هومکا همراه شوید تا بیشتر در رابطه با نحوه تفسیر آزمایش و خواندن جواب آزمایش بدانید.برای تفسیر آزمایش خون یا ادرار هیچکس مانند پزشک نمی‌تواند به شما کمک کند. زیرا تنها با نتیجه آزمایش نمی‌توان در مورد بیماری یا میزان پیشرفت درمان اظهار نظر کرد و شرایط دیگر هم در آن موثرند. همچنین نتیجه آزمایشات در بیشتر مواقع به فاکتورهایی مانند سن و جنسیت نیز بستگی دارد. با هومکا همراه شوید تا بیشتر در رابطه با نحوه تفسیر آزمایش و خواندن جواب آزمایش بدانید.برای تفسیر آزمایش خون یا ادرار هیچکس مانند پزشک نمی‌تواند به شما کمک کند. زیرا تنها با نتیجه آزمایش نمی‌توان در مورد بیماری یا میزان پیشرفت درمان اظهار نظر کرد و شرایط دیگر هم در آن موثرند. همچنین نتیجه آزمایشات در بیشتر مواقع به فاکتورهایی مانند سن و جنسیت نیز بستگی دارد. با هومکا همراه شوید تا بیشتر در رابطه با نحوه تفسیر آزمایش و خواندن جواب آزمایش بدانید.</span>
+        </div>
+        <div class="col-12 comments" dir="rtl">
+            <div>
+                    <div class="container my-5 py-5">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-12 col-lg-10">
+                                <div class="card text-dark">
+                                    <div class="card-body p-4">
+                                        <h4 class="mb-2 my-font-IYB my-f-16 ">نظر های این محصول</h4>
+                                        <p class="fw-light mb-4 pb-2 my-font-IYL me-2 my-f-13">بر اساس جدیدترین نظرات</p>
+
+                                        <div class="d-flex flex-start my-3 border p-3 rounded-3">
+                                            <img class="rounded-circle shadow-1-strong me-3"src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(23).webp" alt="avatar" width="60"                                height="60" />
+                                            <div>
+                                                <h6 class="fw-bold mb-1">Maggie Marsh</h6>
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <p class="mb-0">
+                                                        March 07, 2021<span class="badge bg-primary">Pending</span>
+                                                    </p>
+                                                    <a href="#!" class="link-muted"><i class="fas fa-pencil-alt ms-2"></i></a>
+                                                    <a href="#!" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
+                                                    <a href="#!" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
+                                                </div>
+                                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummy text eversince the 1500s, when an unknown printer took a galley of type andscrambled it.                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-start my-3 border p-3 rounded-3">
+                                            <img class="rounded-circle shadow-1-strong me-3"src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(23).webp" alt="avatar" width="60"                                height="60" />
+                                            <div>
+                                                <h6 class="fw-bold mb-1">Maggie Marsh</h6>
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <p class="mb-0">
+                                                        March 07, 2021<span class="badge bg-primary">Pending</span>
+                                                    </p>
+                                                    <a href="#!" class="link-muted"><i class="fas fa-pencil-alt ms-2"></i></a>
+                                                    <a href="#!" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
+                                                    <a href="#!" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
+                                                </div>
+                                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummy text eversince the 1500s, when an unknown printer took a galley of type andscrambled it.                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-start my-3 border p-3 rounded-3">
+                                            <img class="rounded-circle shadow-1-strong me-3"src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(23).webp" alt="avatar" width="60"                                height="60" />
+                                            <div>
+                                                <h6 class="fw-bold mb-1">Maggie Marsh</h6>
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <p class="mb-0">
+                                                        March 07, 2021<span class="badge bg-primary">Pending</span>
+                                                    </p>
+                                                    <a href="#!" class="link-muted"><i class="fas fa-pencil-alt ms-2"></i></a>
+                                                    <a href="#!" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
+                                                    <a href="#!" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
+                                                </div>
+                                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummy text eversince the 1500s, when an unknown printer took a galley of type andscrambled it.                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </template>
 
 <script>

@@ -76,3 +76,7 @@
 .item-cart:hover{
     background-color: #f1f1f1;
 }
+
+.select-item-desc{
+    border-bottom: 2px solid red;
+}
