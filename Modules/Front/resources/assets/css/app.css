@@ -80,3 +80,7 @@
 .select-item-desc{
     border-bottom: 2px solid red;
 }
+
+.d-noen-desc{
+    display: none;
+}

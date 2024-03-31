@@ -10,7 +10,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'smal_body', 'big_body', 'index_image', 'price'];
+    protected $fillable = ['name', 'smal_body', 'big_body', 'index_image', 'price', 'keeping', 'location', 'light', 'popularity'];
 
     public function menu(){
 
@@ -22,6 +22,11 @@ class Product extends Model
 
         return $this->belongsTo(SubMenu::class, 'sub_menu_id', 'id');
 
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 
 }

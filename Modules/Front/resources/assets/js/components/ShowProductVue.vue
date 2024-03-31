@@ -3,7 +3,7 @@
         <nav class="my-font-ISL my-f-15 my-color-b-800" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">گیاه طبیعی</a></li>
-                <li class="breadcrumb-item active" aria-current="page">گیاه زامفولیا</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
             </ol>
         </nav>
     </div>
@@ -29,7 +29,7 @@
         </div>
         <div class="col-12 col-md-6 bg-white p-4" dir="rtl">
             <h6 class="my-font-IYB my-color-b-800">نام محصول : </h6>
-            <h4 class="my-font-IYL my-color-b-900 mt-3 me-2">گیاه زامفولیا</h4>
+            <h4 class="my-font-IYL my-color-b-900 mt-3 me-2">{{ product.name }}</h4>
             <div class="mt-4 d-flex">
                 <span style="position: relative; bottom: -1px;" class="my-font-IYL my-color-b-800 my-f-13">محبوبیت</span>
                 <div class="mx-2">
@@ -40,12 +40,12 @@
                     <i class="bi bi-star mx-1" style="color: #cbc600;"></i>
                 </div>
             </div>
-            <p class="my-font-IYB my-4" style="font-size: 40px;color: #00ab00;"><b>35.000 تومان</b></p>
-            <div class="my-font-IYL my-color-b-800 my-f-13">نوع نگهداری : <span style="color: #00ab00;"><b>آسان</b></span></div>
-            <div class="my-font-IYL my-color-b-800 my-f-13 mt-2 pt-0">محل رویش: <span style="color: #00ab00;"><b>امریکا</b></span></div>
-            <div class="my-font-IYL my-color-b-800 my-f-13 mt-2 pt-0"> نور : <span style="color: #00ab00;"><b>غیر مستقیم</b></span></div>
+            <p class="my-font-IYB my-4" style="font-size: 40px;color: #00ab00;"><b>{{ product.price }} تومان</b></p>
+            <div class="my-font-IYL my-color-b-800 my-f-13">نوع نگهداری : <span style="color: #00ab00;"><b>{{ product.keeping }}</b></span></div>
+            <div class="my-font-IYL my-color-b-800 my-f-13 mt-2 pt-0">محل رویش: <span style="color: #00ab00;"><b>{{ product.location }}</b></span></div>
+            <div class="my-font-IYL my-color-b-800 my-f-13 mt-2 pt-0"> نور : <span style="color: #00ab00;"><b>{{ product.light }}</b></span></div>
             <hr class="my-5">
-            <p class="my-font-IYL my-f-14 my-color-b-800" style="line-height: 25px;">برای تفسیر آزمایش خون یا ادرار هیچکس مانند پزشک نمی‌تواند به شما کمک کند. زیرا تنها با نتیجه آزمایش نمی‌توان در مورد بیماری یا میزان پیشرفت درمان اظهار نظر کرد و شرایط دیگر هم در آن موثرند. همچنین نتیجه آزمایشات در بیشتر مواقع به فاکتورهایی مانند سن و جنسیت نیز بستگی دارد. با هومکا همراه شوید تا بیشتر در رابطه با نحوه تفسیر آزمایش و خواندن جواب آزمایش بدانید.</p>
+            <p class="my-font-IYL my-f-14 my-color-b-800" style="line-height: 25px;">{{ product.smal_body }}</p>
             <div>
                 <span class="my-font-IYM my-f-13">انتخاب سایز گلدان </span>
                 <div class="d-flex">
@@ -85,17 +85,21 @@
     </div>
     <div class="row col-12 m-0 p-0">
         <div class="col-12 p-2 d-flex justify-content-evenly align-items-center">
-            <span class="mx-2 my-pointer my-f-15 my-font-IYM my-color-b-900 py-4 px-2 select-item-desc">توضیحات</span>
-            <span class="mx-2 my-pointer my-f-15 my-font-IYM my-color-b-900 py-4 px-2">بازبینی</span>
-            <span class="mx-2 my-pointer my-f-15 my-font-IYM my-color-b-900 py-4 px-2">کامنت ها</span>
+            <span class="mx-2 my-pointer my-f-15 my-font-IYM my-color-b-900 py-4 px-2 item-rev" @click="item_menu_rev">بازبینی</span>
+            <span class="mx-2 my-pointer my-f-15 my-font-IYM my-color-b-900 py-4 px-2 item-desc select-item-desc" @click="item_menu_desc">توضیحات</span>
+            <span class="mx-2 my-pointer my-f-15 my-font-IYM my-color-b-900 py-4 px-2 item-comment" @click="item_menu_comment">کامنت ها</span>
         </div>
+
         <div class="col-12 desc-big" dir="rtl">
-            <span class="my-f-13 p-2 my-color-b-600 my-font-IYB" style="line-height: 35px;">برای تفسیر آزمایش خون یا ادرار هیچکس مانند پزشک نمی‌تواند به شما کمک کند. زیرا تنها با نتیجه آزمایش نمی‌توان در مورد بیماری یا میزان پیشرفت درمان اظهار نظر کرد و شرایط دیگر هم در آن موثرند. همچنین نتیجه آزمایشات در بیشتر مواقع به فاکتورهایی مانند سن و جنسیت نیز بستگی دارد. با هومکا همراه شوید تا بیشتر در رابطه با نحوه تفسیر آزمایش و خواندن جواب آزمایش بدانید.برای تفسیر آزمایش خون یا ادرار هیچکس مانند پزشک نمی‌تواند به شما کمک کند. زیرا تنها با نتیجه آزمایش نمی‌توان در مورد بیماری یا میزان پیشرفت درمان اظهار نظر کرد و شرایط دیگر هم در آن موثرند. همچنین نتیجه آزمایشات در بیشتر مواقع به فاکتورهایی مانند سن و جنسیت نیز بستگی دارد. با هومکا همراه شوید تا بیشتر در رابطه با نحوه تفسیر آزمایش و خواندن جواب آزمایش بدانید.برای تفسیر آزمایش خون یا ادرار هیچکس مانند پزشک نمی‌تواند به شما کمک کند. زیرا تنها با نتیجه آزمایش نمی‌توان در مورد بیماری یا میزان پیشرفت درمان اظهار نظر کرد و شرایط دیگر هم در آن موثرند. همچنین نتیجه آزمایشات در بیشتر مواقع به فاکتورهایی مانند سن و جنسیت نیز بستگی دارد. با هومکا همراه شوید تا بیشتر در رابطه با نحوه تفسیر آزمایش و خواندن جواب آزمایش بدانید.</span>
+            <span class="my-f-13 p-2 my-color-b-600 my-font-IYB" style="line-height: 35px;">{{ product.big_body }}</span>
         </div>
-        <div class="col-12 rev-big" dir="rtl">
-            <span class="my-f-13 p-2 my-color-b-600 my-font-IYB" style="line-height: 35px;">برای تفسیر آزمایش خون یا ادرار هیچکس مانند پزشک نمی‌تواند به شما کمک کند. زیرا تنها با نتیجه آزمایش نمی‌توان در مورد بیماری یا میزان پیشرفت درمان اظهار نظر کرد و شرایط دیگر هم در آن موثرند. همچنین نتیجه آزمایشات در بیشتر مواقع به فاکتورهایی مانند سن و جنسیت نیز بستگی دارد. با هومکا همراه شوید تا بیشتر در رابطه با نحوه تفسیر آزمایش و خواندن جواب آزمایش بدانید.برای تفسیر آزمایش خون یا ادرار هیچکس مانند پزشک نمی‌تواند به شما کمک کند. زیرا تنها با نتیجه آزمایش نمی‌توان در مورد بیماری یا میزان پیشرفت درمان اظهار نظر کرد و شرایط دیگر هم در آن موثرند. همچنین نتیجه آزمایشات در بیشتر مواقع به فاکتورهایی مانند سن و جنسیت نیز بستگی دارد. با هومکا همراه شوید تا بیشتر در رابطه با نحوه تفسیر آزمایش و خواندن جواب آزمایش بدانید.برای تفسیر آزمایش خون یا ادرار هیچکس مانند پزشک نمی‌تواند به شما کمک کند. زیرا تنها با نتیجه آزمایش نمی‌توان در مورد بیماری یا میزان پیشرفت درمان اظهار نظر کرد و شرایط دیگر هم در آن موثرند. همچنین نتیجه آزمایشات در بیشتر مواقع به فاکتورهایی مانند سن و جنسیت نیز بستگی دارد. با هومکا همراه شوید تا بیشتر در رابطه با نحوه تفسیر آزمایش و خواندن جواب آزمایش بدانید.</span>
+
+        <div class="col-12 rev-big" style="display: none;" dir="rtl">
+            <span class="my-f-13 p-2 my-color-b-600 my-font-IYB" style="line-height: 35px;"><slot name="review"></slot></span>
+
         </div>
-        <div class="col-12 comments" dir="rtl">
+
+        <div class="col-12 comments" style="display: none;" dir="rtl">
             <div>
                     <div class="container my-5 py-5">
                         <div class="row d-flex justify-content-center">
@@ -160,15 +164,48 @@
                 </div>
             </div>
         </div>
+
+        <hr>
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
     name: 'ShowProductVue',
     methods: {
         test_app() {
             alert('test')
+        },
+        item_menu_rev(){
+            $(".item-desc").removeClass("select-item-desc")
+            $(".item-rev").addClass("select-item-desc")
+            $(".item-comment").removeClass("select-item-desc")
+
+            $('.desc-big').stop().slideUp()
+            $('.rev-big').stop().slideDown()
+            $('.comments').stop().slideUp()
+        },
+        item_menu_comment(){
+            $(".item-desc").removeClass("select-item-desc")
+            $(".item-rev").removeClass("select-item-desc")
+            $(".item-comment").addClass("select-item-desc")
+
+            $('.desc-big').stop().slideUp()
+            $('.rev-big').stop().slideUp()
+            $('.comments').stop().slideDown()
+        },
+        item_menu_desc(){
+            $(".item-desc").addClass("select-item-desc")
+            $(".item-rev").removeClass("select-item-desc")
+            $(".item-comment").removeClass("select-item-desc")
+
+            $('.desc-big').stop().slideDown()
+            $('.rev-big').stop().slideUp()
+            $('.comments').stop().slideUp()
         }
     },
+    props:{
+        product:Object
+    }
 }
 </script>

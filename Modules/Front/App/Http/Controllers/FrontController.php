@@ -27,11 +27,12 @@ class FrontController extends Controller
         return view('front::index', ['menus' => $menus, 'menus_slid' => $menus_slid, 'products'=>$products, 'images'=>$images_slider, 'banner' => $banner]);
     }
 
-    public function viewProduct()
+    public function viewProduct(Product $product)
     {
         $menus = Menu::all();
         $menus_slid = Menu::whereMode(2)->get();
-        return view('front::show_product', ['menus' => $menus, 'menus_slid' => $menus_slid]);
+
+        return view('front::show_product', ['menus' => $menus, 'menus_slid' => $menus_slid, 'product' => $product]);
     }
 
     public function getDataMenu(Request $request)

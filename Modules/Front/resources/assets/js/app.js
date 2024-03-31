@@ -23,7 +23,8 @@ const app = createApp({
 
         show_menu_mobile(){
             $('.slid-menus-mobile').stop().slideToggle()
-        }
+        },
+
     },
     components:{
         HelloWorld:HelloWorld,

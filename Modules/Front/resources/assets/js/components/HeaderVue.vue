@@ -1,6 +1,6 @@
 <template>
     <header>
-        <div class="box-cart rounded-3 shadow border row overflow-hidden m-0 p-0">
+        <div class="box-cart rounded-3 shadow border row overflow-hidden m-0 p-0" style="display: none;">
             <div class="col-12 p-2 toper-cart-1 d-flex justify-content-center align-items-center">
                 <span class="my-font-IYB my-f-15 my-color-b-800">سبد خرید</span>
             </div>
