@@ -41,7 +41,7 @@
 
     <slider-vue :images="{{$images}}"></slider-vue>
 
-    <toper-vue :menu_1="{{$menus->find(6)->sub_menus->take(2)}}" :menu_2="{{$menus->find(10)->sub_menus->take(2)}}"></toper-vue>
+    {{-- <toper-vue :menu_1="{{$menus->find(6)->sub_menus->take(2)}}" :menu_2="{{$menus->find(10)->sub_menus->take(2)}}"></toper-vue> --}}
 
     <product-vue :title="'جدیدترین محصولات'" :image="'view_box_product.png'" :products="{{$products}}"></product-vue>
 

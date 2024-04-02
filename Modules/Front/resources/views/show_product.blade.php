@@ -40,9 +40,9 @@
     </header-vue>
 
     <show-product-vue :product="{{$product}}">
-        <template #review>
+        {{-- <template #review>
             {!! $product.rev !!}
-        </template>
+        </template> --}}
     </show-product-vue>
 
     <footer-vue></footer-vue>
