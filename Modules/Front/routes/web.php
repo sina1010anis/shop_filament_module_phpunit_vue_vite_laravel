@@ -19,6 +19,10 @@ Route::prefix('/')->as('front.')->group(function (){
 
     Route::get('', [FrontController::class, 'index'])->name('index');
 
+    Route::get('/logout', function() {
+        auth()->logout();
+    });
+
     Route::post('get/data/menu', [FrontController::class, 'getDataMenu'])->name('get_data_menu');
 
     Route::get('/product/{product}', [FrontController::class, 'viewProduct'])->name('view_product');

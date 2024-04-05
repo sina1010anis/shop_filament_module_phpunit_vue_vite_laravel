@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Front\App\Models\Banner;
+use Modules\Front\App\Models\Card;
 use Modules\Front\App\Models\ImageSlider;
 use Modules\Front\App\Models\Menu;
 use Modules\Front\App\Models\Product;
@@ -36,8 +37,18 @@ class FrontController extends Controller
         return view('front::show_product', ['menus' => $menus, 'menus_slid' => $menus_slid, 'product' => $product]);
     }
 
-    public function sendCardProduct()
+    public function sendCardProduct(Request $request, Card $card)
     {
+
+        try {
+
+            $card->addCard(auth()->user()->id, $request->product_id);
+
+        } catch(\Exception $e) {
+
+            return false;
+
+        }
 
     }
 

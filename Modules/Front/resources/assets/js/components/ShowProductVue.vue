@@ -7,6 +7,12 @@
             </ol>
         </nav>
     </div>
+    <div style="display: none;" class="alert-new-card">
+        <div  class="alert  alert-success d-flex justify-content-between align-items-center" dir="rtl" role="alert">
+            <strong class="my-font-IYL my-f-14"> محصول به سبد خرید شما اضافه شد</strong>
+            <b><i @click="cls_alert" class="bi bi-x-lg my-f-15 my-pointer"></i></b>
+        </div>
+    </div>
     <div class="row col-12 m-0 p-0">
         <div class="col-12 col-md-6 bg-white border border-start-0 border-bottom-0 border-top-0 p-3">
             <div class="d-flex justify-content-center align-items-center my-3">
@@ -46,25 +52,34 @@
             <div class="my-font-IYL my-color-b-800 my-f-13 mt-2 pt-0"> نور : <span style="color: #00ab00;"><b>{{ product.light }}</b></span></div>
             <hr class="my-5">
             <p class="my-font-IYL my-f-14 my-color-b-800" style="line-height: 25px;">{{ product.smal_body }}</p>
-            <div>
-                <span class="my-font-IYM my-f-13">انتخاب سایز گلدان </span>
-                <div class="d-flex">
-                    <div v-for="(price, index) in product_price" @key="index">
-                        <div @click="select_size(price.id, price.model)" class="border rounded my-f-13 my-color-b-800 my-font-IYB p-3 my-pointer m-2">
-                            {{ price.model }}
+            <div v-if="auth">
+                <div>
+                    <span class="my-font-IYM my-f-13">انتخاب سایز گلدان </span>
+                    <div class="d-flex">
+                        <div v-for="(price, index) in product_price" @key="index">
+                            <div @click="select_size(price.id, price.model)" class="border rounded my-f-13 my-color-b-800 my-font-IYB p-3 my-pointer m-2">
+                                {{ price.model }}
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-            <div v-if="id_size_product == null" class="my-4 d-flex justify-content-between">
-                <span class="my-font-IYB my-f-14 text-danger">! لطفا یک سایز گلدان انتخاب کنید</span>
-                <span class="shadow my-btn-bl py-2 rounded px-4 my-font-IYM my-not my-select-none" disabled>اضافه به سبد خرید</span>
-            </div>
+            <div v-if="auth">
+                <div v-if="id_size_product == null" class="my-4 d-flex justify-content-between">
+                    <span class="my-font-IYB my-f-14 text-danger">! لطفا یک سایز گلدان انتخاب کنید</span>
+                    <span class="shadow my-btn-bl py-2 rounded px-4 my-font-IYM my-not my-select-none" disabled>اضافه به سبد خرید</span>
+                </div>
 
-            <div v-else-if="id_size_product != null" class="my-4 d-flex justify-content-between">
-                <span class="my-font-IYB my-f-14 text-success">سایز انتخاب شده : {{ name_product_size }}</span>
-                <span @click="send_card" class="my-pointer my-select-none shadow my-btn-g py-2 rounded px-4 my-font-IYM">اضافه به سبد خرید</span>
+                <div v-else-if="id_size_product != null" class="my-4 d-flex justify-content-between">
+                    <span class="my-font-IYB my-f-14 text-success">سایز انتخاب شده : {{ name_product_size }}</span>
+                    <span @click="send_card" class="my-pointer my-select-none shadow my-btn-g py-2 rounded px-4 my-font-IYM">اضافه به سبد خرید</span>
+                </div>
+            </div>
+            <div v-else>
+                <div class="alert alert-danger text-center my-font-IYM my-f-13 " role="alert">
+                    برای خرید <a href="/login">وارد</a> وب سایت شوید
+                </div>
             </div>
 
             <div class="d-flex justify-content-around flex-md-row flex-column align-items-center">
@@ -176,10 +191,20 @@ export default {
     data:()=>({
         id_size_product:null,
         name_product_size:null,
+        status_card:false,
     }),
     methods: {
         send_card(){
-            axios.post('/')
+            axios.post('/send/card/product', {product_id:this.id_size_product}).then((res)=>{
+                $('.alert-new-card').stop().fadeIn()
+            }).catch((res)=>{
+                console.log(res.data);
+            })
+        },
+        cls_alert () {
+
+            $('.alert-new-card').stop().fadeOut()
+
         },
         select_size(id, model){
             this.id_size_product = id
@@ -219,6 +244,7 @@ export default {
     props:{
         product:Object,
         product_price:Object,
+        auth:Boolean,
     }
 }
 </script>
