@@ -49,24 +49,24 @@
             <div>
                 <span class="my-font-IYM my-f-13">انتخاب سایز گلدان </span>
                 <div class="d-flex">
-                    <div class="border rounded my-f-13 my-color-b-800 my-font-IYB p-3 my-pointer m-2">
-                        ML
+                    <div v-for="(price, index) in product_price" @key="index">
+                        <div @click="select_size(price.id, price.model)" class="border rounded my-f-13 my-color-b-800 my-font-IYB p-3 my-pointer m-2">
+                            {{ price.model }}
+                        </div>
                     </div>
-                    <div class="border rounded my-f-13 my-color-b-800 my-font-IYB p-3 my-pointer m-2">
-                        SL
-                    </div>
-                    <div class="border rounded my-f-13 my-color-b-800 my-font-IYB p-3 my-pointer m-2">
-                        MD
-                    </div>
-                    <div class="border rounded my-f-13 my-color-b-800 my-font-IYB p-3 my-pointer m-2">
-                        SD
-                    </div>
+
                 </div>
             </div>
-            <div class="my-4 d-flex justify-content-between">
+            <div v-if="id_size_product == null" class="my-4 d-flex justify-content-between">
                 <span class="my-font-IYB my-f-14 text-danger">! لطفا یک سایز گلدان انتخاب کنید</span>
-                <a href="" class="shadow my-btn-g py-2 rounded px-4 my-font-IYM">اضافه به سبد خرید</a>
+                <span class="shadow my-btn-bl py-2 rounded px-4 my-font-IYM my-not my-select-none" disabled>اضافه به سبد خرید</span>
             </div>
+
+            <div v-else-if="id_size_product != null" class="my-4 d-flex justify-content-between">
+                <span class="my-font-IYB my-f-14 text-success">سایز انتخاب شده : {{ name_product_size }}</span>
+                <span @click="send_card" class="my-pointer my-select-none shadow my-btn-g py-2 rounded px-4 my-font-IYM">اضافه به سبد خرید</span>
+            </div>
+
             <div class="d-flex justify-content-around flex-md-row flex-column align-items-center">
                 <div class="my-2 my-md-3">
                     <span class="my-f-12 my-font-IYB mx-2  my-color-b-500" style="position: relative; bottom: 9px;">ارسال رایگان در شهر</span>
@@ -169,10 +169,22 @@
 </template>
 
 <script>
+import axios from 'axios'
 import $ from 'jquery'
 export default {
     name: 'ShowProductVue',
+    data:()=>({
+        id_size_product:null,
+        name_product_size:null,
+    }),
     methods: {
+        send_card(){
+            axios.post('/')
+        },
+        select_size(id, model){
+            this.id_size_product = id
+            this.name_product_size = model
+        },
         test_app() {
             alert('test')
         },
@@ -205,7 +217,8 @@ export default {
         }
     },
     props:{
-        product:Object
+        product:Object,
+        product_price:Object,
     }
 }
 </script>

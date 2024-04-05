@@ -229,6 +229,8 @@ a{
 .my-pointer {
     cursor: pointer;
 }
+
+
 .my-not {
     cursor: not-allowed;
 }

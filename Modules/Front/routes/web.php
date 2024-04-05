@@ -14,8 +14,16 @@ use Modules\Front\App\Http\Controllers\FrontController;
 |
 */
 
+
 Route::prefix('/')->as('front.')->group(function (){
+
     Route::get('', [FrontController::class, 'index'])->name('index');
+
     Route::post('get/data/menu', [FrontController::class, 'getDataMenu'])->name('get_data_menu');
+
     Route::get('/product/{product}', [FrontController::class, 'viewProduct'])->name('view_product');
+
+    Route::post('/send/card/product', [FrontController::class, 'sendCardProduct'])->name('send_card_product');
+
 });
+

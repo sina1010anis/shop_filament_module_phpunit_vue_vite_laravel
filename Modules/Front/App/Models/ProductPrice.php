@@ -19,4 +19,15 @@ class ProductPrice extends Model
     {
         return $this->belongsTo(Product::class, 'product_id', 'id');
     }
+
+    public function card()
+    {
+        return $this->hasMany(Card::class, 'product_id', 'id');
+    }
+
+    public function hasProduct(int $id): bool
+    {
+        return !! $this->whereId($id)->exists();
+    }
+
 }

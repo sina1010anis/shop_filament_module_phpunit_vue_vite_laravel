@@ -39,7 +39,7 @@
         </template>
     </header-vue>
 
-    <show-product-vue :product="{{$product}}">
+    <show-product-vue :product="{{$product}}" :product_price="{{$product->product_price}}">
         {{-- <template #review>
             {!! $product.rev !!}
         </template> --}}

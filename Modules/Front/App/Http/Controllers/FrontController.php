@@ -10,6 +10,7 @@ use Modules\Front\App\Models\Banner;
 use Modules\Front\App\Models\ImageSlider;
 use Modules\Front\App\Models\Menu;
 use Modules\Front\App\Models\Product;
+use Modules\Front\App\Models\ProductPrice;
 use Modules\Front\App\Models\SubMenu;
 
 class FrontController extends Controller
@@ -33,6 +34,11 @@ class FrontController extends Controller
         $menus_slid = Menu::whereMode(2)->get();
 
         return view('front::show_product', ['menus' => $menus, 'menus_slid' => $menus_slid, 'product' => $product]);
+    }
+
+    public function sendCardProduct()
+    {
+
     }
 
     public function getDataMenu(Request $request)
