@@ -15,7 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         }
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->web(['throttle:r-test']);
+        //$middleware->web(['throttle:r-test']);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
