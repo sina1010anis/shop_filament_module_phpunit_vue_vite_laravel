@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\User\App\Http\Requests\AddCommentRequest;
+use Modules\User\App\Models\Comment;
 
 class UserController extends Controller
 {
@@ -15,6 +17,20 @@ class UserController extends Controller
     public function index()
     {
         return view('user::index');
+    }
+
+    public function newComment($product_id, AddCommentRequest $request, Comment $comment)
+    {
+
+        if (auth()->check()) {
+
+            $comment->addComment($request, auth()->user()->id, $product_id);
+
+            return back()->with('ok-msg','نظر شما با موفقیت ثبت شد تا تایید مدیر صبور باشد');
+
+        }
+
+        return back()->with('error-msg','ابتدا وارد وب سایت شوید');
     }
 
     /**

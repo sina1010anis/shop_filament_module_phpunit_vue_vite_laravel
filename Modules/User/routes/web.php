@@ -14,6 +14,7 @@ use Modules\User\App\Http\Controllers\UserController;
 |
 */
 
-Route::prefix('/user')->group(function (){
+Route::prefix('/user')->as('user.')->group(function (){
     Route::get('/test', [UserController::class, 'index']);
+    Route::post('/new/comment/{product_id}', [UserController::class, 'newComment'])->name('new.comment');
 });

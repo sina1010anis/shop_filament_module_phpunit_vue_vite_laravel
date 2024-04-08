@@ -84,3 +84,13 @@
 .d-noen-desc{
     display: none;
 }
+
+.msg-rdirect{
+    min-width:250px ;
+    max-width:250px ;
+    position: fixed;
+    z-index: 20;
+    top : 15px;
+    right: 15px;
+    border-radius: 10px;
+}

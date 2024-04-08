@@ -33,7 +33,6 @@ class FrontController extends Controller
     {
         $menus = Menu::all();
         $menus_slid = Menu::whereMode(2)->get();
-
         return view('front::show_product', ['menus' => $menus, 'menus_slid' => $menus_slid, 'product' => $product]);
     }
 

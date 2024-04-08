@@ -116,66 +116,35 @@
 
         <div class="col-12 comments" style="display: none;" dir="rtl">
             <div>
-                    <div class="container my-5 py-5">
+
+                <div v-if="auth" class="container">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-12 col-lg-10">
+                                <div class="card text-dark">
+                                    <div class="card-body p-4">
+                                        <h4 class="mb-2 my-font-IYB my-f-16 ">ثبت نظر جدید</h4>
+                                        <slot name="new_comment"></slot>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container my-2 py-2">
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-12 col-lg-10">
                                 <div class="card text-dark">
                                     <div class="card-body p-4">
                                         <h4 class="mb-2 my-font-IYB my-f-16 ">نظر های این محصول</h4>
                                         <p class="fw-light mb-4 pb-2 my-font-IYL me-2 my-f-13">بر اساس جدیدترین نظرات</p>
-
-                                        <div class="d-flex flex-start my-3 border p-3 rounded-3">
-                                            <img class="rounded-circle shadow-1-strong me-3"src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(23).webp" alt="avatar" width="60"                                height="60" />
-                                            <div>
-                                                <h6 class="fw-bold mb-1">Maggie Marsh</h6>
-                                                <div class="d-flex align-items-center mb-3">
-                                                    <p class="mb-0">
-                                                        March 07, 2021<span class="badge bg-primary">Pending</span>
-                                                    </p>
-                                                    <a href="#!" class="link-muted"><i class="fas fa-pencil-alt ms-2"></i></a>
-                                                    <a href="#!" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
-                                                    <a href="#!" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
-                                                </div>
-                                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummy text eversince the 1500s, when an unknown printer took a galley of type andscrambled it.                                </p>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex flex-start my-3 border p-3 rounded-3">
-                                            <img class="rounded-circle shadow-1-strong me-3"src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(23).webp" alt="avatar" width="60"                                height="60" />
-                                            <div>
-                                                <h6 class="fw-bold mb-1">Maggie Marsh</h6>
-                                                <div class="d-flex align-items-center mb-3">
-                                                    <p class="mb-0">
-                                                        March 07, 2021<span class="badge bg-primary">Pending</span>
-                                                    </p>
-                                                    <a href="#!" class="link-muted"><i class="fas fa-pencil-alt ms-2"></i></a>
-                                                    <a href="#!" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
-                                                    <a href="#!" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
-                                                </div>
-                                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummy text eversince the 1500s, when an unknown printer took a galley of type andscrambled it.                                </p>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex flex-start my-3 border p-3 rounded-3">
-                                            <img class="rounded-circle shadow-1-strong me-3"src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(23).webp" alt="avatar" width="60"                                height="60" />
-                                            <div>
-                                                <h6 class="fw-bold mb-1">Maggie Marsh</h6>
-                                                <div class="d-flex align-items-center mb-3">
-                                                    <p class="mb-0">
-                                                        March 07, 2021<span class="badge bg-primary">Pending</span>
-                                                    </p>
-                                                    <a href="#!" class="link-muted"><i class="fas fa-pencil-alt ms-2"></i></a>
-                                                    <a href="#!" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
-                                                    <a href="#!" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
-                                                </div>
-                                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummy text eversince the 1500s, when an unknown printer took a galley of type andscrambled it.                                </p>
-                                            </div>
-                                        </div>
+                                        <slot name="item_comments"></slot>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

@@ -35,6 +35,11 @@ const app = createApp({
         BannerVue:BannerVue,
         FooterVue:FooterVue,
         ShowProductVue:ShowProductVue,
+    },
+    mounted(){
+        setTimeout(()=>{
+            $('.msg-rdirect').fadeToggle()
+        },4500)
     }
 })
 

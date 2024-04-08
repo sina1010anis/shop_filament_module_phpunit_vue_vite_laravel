@@ -22,6 +22,16 @@
 
 <body>
     <div id="app">
+        @if (session('error-msg'))
+            <div class="msg-rdirect px-4 py-2 rounded-3 shadow my-select-none my-f-12 my-font-IYM my-btn-r" dir="rtl">
+                {{session('error-msg')}}
+            </div>
+        @endif
+        @if (session('ok-msg'))
+            <div class="msg-rdirect px-4 py-2 rounded-3 shadow my-select-none my-f-12 my-font-IYM my-btn-g" dir="rtl">
+                {{session('ok-msg')}}
+            </div>
+        @endif
         <div class="container-fluid box-shape">
             <div class="row">
                 @yield('content')
