@@ -37,13 +37,10 @@
             <h6 class="my-font-IYB my-color-b-800">نام محصول : </h6>
             <h4 class="my-font-IYL my-color-b-900 mt-3 me-2">{{ product.name }}</h4>
             <div class="mt-4 d-flex">
-                <span style="position: relative; bottom: -1px;" class="my-font-IYL my-color-b-800 my-f-13">محبوبیت</span>
+                <span style="position: relative; bottom: -1px;" class="my-font-IYL my-color-b-900 my-f-13">محبوبیت</span>
                 <div class="mx-2">
-                    <i class="bi bi-star mx-1" style="color: #cbc600;"></i>
-                    <i class="bi bi-star mx-1" style="color: #cbc600;"></i>
-                    <i class="bi bi-star mx-1" style="color: #cbc600;"></i>
-                    <i class="bi bi-star mx-1" style="color: #cbc600;"></i>
-                    <i class="bi bi-star mx-1" style="color: #cbc600;"></i>
+                    <span class="my-font-IYL my-color-b-700 my-f-11">{{ vote + '+' }}</span>
+                    <i class="bi bi-star-fill mx-1" style="color: rgb(243 238 21);"></i>
                 </div>
             </div>
             <p class="my-font-IYB my-4" style="font-size: 40px;color: #00ab00;"><b>{{ product.price }} تومان</b></p>
@@ -148,7 +145,6 @@
                 </div>
             </div>
         </div>
-
         <hr>
 </template>
 
@@ -214,6 +210,7 @@ export default {
         product:Object,
         product_price:Object,
         auth:Boolean,
+        vote:String
     }
 }
 </script>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cookie;
 use Modules\Front\App\Models\Banner;
 use Modules\Front\App\Models\Card;
 use Modules\Front\App\Models\ImageSlider;
@@ -34,6 +35,17 @@ class FrontController extends Controller
         $menus = Menu::all();
         $menus_slid = Menu::whereMode(2)->get();
         return view('front::show_product', ['menus' => $menus, 'menus_slid' => $menus_slid, 'product' => $product]);
+    }
+
+    public function saveVote($product_id, Request $request, Product $product)
+    {
+        if (!$product->hasVote()) {
+
+            $product->saveVote($request->number);
+
+            $product->find($product_id)->increment('popularity', $request->number);
+
+        }
     }
 
     public function sendCardProduct(Request $request, Card $card)

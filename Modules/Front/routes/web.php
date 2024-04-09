@@ -29,5 +29,7 @@ Route::prefix('/')->as('front.')->group(function (){
 
     Route::post('/send/card/product', [FrontController::class, 'sendCardProduct'])->name('send_card_product');
 
+    Route::post('/save/vote/{product_id}', [FrontController::class, 'saveVote'])->name('save.vote');
+
 });
 

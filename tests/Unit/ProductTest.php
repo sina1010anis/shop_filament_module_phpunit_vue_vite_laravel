@@ -4,6 +4,8 @@ namespace Tests\Unit;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cookie;
 use Modules\Front\App\Models\Card;
 use Modules\Front\App\Models\Product;
 use Modules\Front\App\Models\ProductPrice;
@@ -80,5 +82,12 @@ class ProductTest extends TestCase
     private function getFirstComment()
     {
         return $this->model_comment->latest('id')->first();
+    }
+
+    public function test_save_vote_for_product()
+    {
+        cookie('test-vote', '80', 60);
+
+        dd($this->model_request->cookie('test-vote'));
     }
 }

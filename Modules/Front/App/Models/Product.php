@@ -45,5 +45,31 @@ class Product extends Model
         return !! $this->whereId($id)->exists();
     }
 
+    public function hasVote(): bool
+    {
+        return !! isset($_COOKIE['vote-product']);
+    }
+
+    public function saveVote($number): void
+    {
+        if ( ! $this->hasVote()) {
+
+            setcookie('vote-product', $number, time()+9999, '/');
+
+        }
+
+    }
+
+    public function getVote()
+    {
+        if ( ! $this->hasVote()) {
+
+            return $_COOKIE('vote-product');
+
+        }
+
+        return 'Not Set';
+    }
+
 
 }

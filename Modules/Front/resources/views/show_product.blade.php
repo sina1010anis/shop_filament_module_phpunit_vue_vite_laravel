@@ -39,7 +39,7 @@
         </template>
     </header-vue>
 
-    <show-product-vue :product="{{$product}}" :product_price="{{$product->product_price}}" :auth="{{auth()->check()}}">
+    <show-product-vue :product="{{$product}}" :vote="{{$product->popularity / 5}}" :product_price="{{$product->product_price}}" :auth="{{auth()->check()}}">
         <template #item_comments>
             @forelse ($product->comments as $comment)
                 <div class="d-flex flex-start my-3 border p-3 rounded-3">
@@ -100,6 +100,21 @@
             @endauth
         </template>
     </show-product-vue>
+    @if (!(new Modules\Front\App\Models\Product)->hasVote())
+        <div class="box-vote box-vote-a my-btn-g rounded-2 p-2 shadow my-font-IYL" v-if="status_vote_product">
+            <p class="m-0 py-2 px-0 text-center my-select-none" >        لطفا به این محصول رای بدهید        </p>
+            <div class="d-flex justify-content-center align-items-center">
+                <span @click="send_vote(0, {{$product->id}})" class="badge badge-light my-pointer bg-success mx-2">بد</span>
+                <span @click="send_vote(1, {{$product->id}})" class="badge badge-light my-pointer bg-success mx-2">متوسط</span>
+                <span @click="send_vote(2, {{$product->id}})" class="badge badge-light my-pointer bg-success mx-2">خوب</span>
+                <span @click="send_vote(3, {{$product->id}})" class="badge badge-light my-pointer bg-success mx-2">خیلی خوب</span>
+                <span @click="send_vote(4, {{$product->id}})" class="badge badge-light my-pointer bg-success mx-2">عالی</span>
+            </div>
+        </div>
+        <div class="box-vote my-btn-g rounded-2 p-2 shadow my-font-IYL" v-else>
+            <p class="m-0 py-2 px-0 text-center my-select-none" >با تشکر از وقتی که گذاشته ایید</p>
+        </div>
+    @endif
 
     <footer-vue></footer-vue>
 

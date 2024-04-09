@@ -14,7 +14,8 @@ import axios from 'axios';
 
 const app = createApp({
     data:()=>({
-        infoApp : '(Laravel 11) (Vue 3)'
+        infoApp : '(Laravel 11) (Vue 3)',
+        status_vote_product:true
     }),
     methods:{
         show_menu_pc(){
@@ -24,6 +25,16 @@ const app = createApp({
         show_menu_mobile(){
             $('.slid-menus-mobile').stop().slideToggle()
         },
+        send_vote(number, product_id){
+            axios.post('/save/vote/'+product_id, {number:number}).then((res)=>{
+                this.status_vote_product = false
+                setTimeout(()=>{
+                    $('.box-vote').fadeOut()
+                }, 3000)
+            }).catch(()=>{
+
+            })
+        }
 
     },
     components:{
