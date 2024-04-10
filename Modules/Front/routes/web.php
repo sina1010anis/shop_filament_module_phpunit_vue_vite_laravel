@@ -25,7 +25,7 @@ Route::prefix('/')->as('front.')->group(function (){
 
     Route::post('get/data/menu', [FrontController::class, 'getDataMenu'])->name('get_data_menu');
 
-    Route::get('/product/{product}', [FrontController::class, 'viewProduct'])->name('view_product');
+    Route::get('/product/{product}', [FrontController::class, 'viewProduct'])->name('view.product');
 
     Route::post('/send/card/product', [FrontController::class, 'sendCardProduct'])->name('send_card_product');
 

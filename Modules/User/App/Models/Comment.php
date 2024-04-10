@@ -13,7 +13,10 @@ class Comment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'body', 'user_id', 'product_id'];
+    protected $fillable = ['title', 'body', 'user_id', 'product_id', 'status'];
+
+
+    public $attribut = ['status' => 0];
 
     public function user()
     {

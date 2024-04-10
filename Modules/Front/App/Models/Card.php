@@ -11,7 +11,9 @@ use Modules\Front\Database\factories\CardFactory;
 class Card extends Model
 {
     use HasFactory;
-    protected $fillable = ['total_number', 'total_price', 'user_id', 'product_id'];
+    protected $fillable = ['total_number', 'total_price', 'user_id', 'product_id', 'user_id'];
+
+    public $attribut = ['status' => 0];
 
     public function user()
     {
@@ -22,6 +24,7 @@ class Card extends Model
     {
         return $this->belongsTo(ProductPrice::class, 'product_id', 'id');
     }
+
 
     public function hasProduct(int $user_id, int $product_id): bool
     {

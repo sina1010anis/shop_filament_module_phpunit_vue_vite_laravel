@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <header-vue :menus_slid="{{$menus_slid}}">
+    <header-vue :menus_slid="{{$menus_slid}}" :auth="{{auth()->check()}}">
 
         <template #menus>
             @foreach ($menus as $menu)
@@ -41,7 +41,7 @@
 
     <show-product-vue :product="{{$product}}" :vote="{{$product->popularity / 5}}" :product_price="{{$product->product_price}}" :auth="{{auth()->check()}}">
         <template #item_comments>
-            @forelse ($product->comments as $comment)
+            @forelse ($product->comments->where('status', 1) as $comment)
                 <div class="d-flex flex-start my-3 border p-3 rounded-3">
                     <img class="rounded-circle shadow-1-strong me-3"src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(23).webp" alt="avatar" width="60"                                height="60" />
                     <div>
