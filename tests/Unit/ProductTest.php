@@ -22,6 +22,7 @@ class ProductTest extends TestCase
     public $model_card;
     private $model_request;
     private $request_comment;
+    private $request_delete_card;
     public function setUp() : void
     {
         parent::setUp();
@@ -40,6 +41,8 @@ class ProductTest extends TestCase
 
         $this->request_comment = $this->model_request->replace(['title' => 'test_3', 'body' => 'test_3']);
 
+        $this->request_delete_card = $this->model_request->replace(['mode' => 'one', 'id' => 8]);
+
     }
     public function test_send_product_card(): void
     {
@@ -54,7 +57,7 @@ class ProductTest extends TestCase
 
     }
 
-    public function test_new_comment_for_product()
+    public function test_new_comment_for_product():void
     {
 
         $this->assertTrue(auth()->check());
@@ -84,10 +87,15 @@ class ProductTest extends TestCase
         return $this->model_comment->latest('id')->first();
     }
 
-    public function test_save_vote_for_product()
+    public function test_save_vote_for_product():void
     {
         cookie('test-vote', '80', 60);
 
         dd($this->model_request->cookie('test-vote'));
+    }
+
+    public function test_delete_product_for_card(): void
+    {
+        $this->model_card->popCard($this->request_delete_card);
     }
 }

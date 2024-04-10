@@ -31,5 +31,7 @@ Route::prefix('/')->as('front.')->group(function (){
 
     Route::post('/save/vote/{product_id}', [FrontController::class, 'saveVote'])->name('save.vote');
 
+    Route::post('/delete/product/card', [FrontController::class, 'deleteProductCard'])->name('delete.product.card');
+
 });
 

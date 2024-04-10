@@ -48,6 +48,12 @@ class FrontController extends Controller
         }
     }
 
+    public function deleteProductCard(Request $request, Card $card)
+    {
+
+        $card->popCard($request);
+
+    }
     public function sendCardProduct(Request $request, Card $card)
     {
 

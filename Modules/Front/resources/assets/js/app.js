@@ -34,6 +34,11 @@ const app = createApp({
             }).catch(()=>{
 
             })
+        },
+        delete_product_card(mode, id){
+            axios.post('/delete/product/card', {mode:mode, id:id}).then((res)=>{
+                alert('then')
+            })
         }
 
     },

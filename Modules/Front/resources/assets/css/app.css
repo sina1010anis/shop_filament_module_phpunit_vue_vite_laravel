@@ -153,3 +153,19 @@
         transform: rotate(-0deg)translate(-50%,-0%);
     }
 }
+
+.icon-delete-product-card{
+    position: absolute;
+    top: 5px;
+    right: 35px;
+}
+
+.icon-delete-product-card:hover, .icon-delete-product-card-all:hover{
+    color: red;
+}
+
+.icon-delete-product-card-all{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
