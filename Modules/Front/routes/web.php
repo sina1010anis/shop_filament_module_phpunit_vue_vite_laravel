@@ -33,5 +33,9 @@ Route::prefix('/')->as('front.')->group(function (){
 
     Route::post('/delete/product/card', [FrontController::class, 'deleteProductCard'])->name('delete.product.card');
 
+    Route::get('/category/{menu}', [FrontController::class, 'viewCategory'])->name('view.category');
+
+    Route::get('/category/menu/{menu}', [FrontController::class, 'viewCategoryMenu'])->name('view.category.menu');
+
 });
 

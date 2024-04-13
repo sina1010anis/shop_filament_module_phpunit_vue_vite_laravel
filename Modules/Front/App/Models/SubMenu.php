@@ -23,4 +23,9 @@ class SubMenu extends Model
 
     }
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 }

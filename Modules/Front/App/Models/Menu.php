@@ -26,4 +26,9 @@ class Menu extends Model
         return $this->hasMany(Product::class, 'menu_id', 'id');
 
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

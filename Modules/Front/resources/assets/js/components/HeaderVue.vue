@@ -80,9 +80,6 @@ export default {
         sub_menus:null,
         img_menu:null
     }),
-    props:{
-        menus_slid:Object
-    },
     methods:{
         get_data_menu(id, src){
             this.img_menu = src
@@ -104,7 +101,8 @@ export default {
     },
     props:{
         auth: Boolean,
-        total_number: String
+        total_number: String,
+        menus_slid: Object,
     }
 }
 </script>

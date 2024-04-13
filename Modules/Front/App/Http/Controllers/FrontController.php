@@ -37,6 +37,28 @@ class FrontController extends Controller
         return view('front::show_product', ['menus' => $menus, 'menus_slid' => $menus_slid, 'product' => $product]);
     }
 
+    public function viewCategory(Menu $menu)
+    {
+
+        $menus_slid = Menu::whereMode(2)->get();
+
+        $menus = Menu::all();
+
+        return view('front::menu', ['menu_sub'=> $menu->sub_menus, 'menus_slid'=>$menus_slid, 'menus'=>$menus]);
+
+    }
+
+    public function viewCategoryMenu(SubMenu $menu)
+    {
+
+        $menus_slid = Menu::whereMode(2)->get();
+
+        $menus = Menu::all();
+
+        return view('front::sub_menu', ['products'=> $menu->products, 'sub_menu'=>$menu, 'menus'=>$menus, 'menus_slid'=>$menus_slid]);
+
+    }
+
     public function saveVote($product_id, Request $request, Product $product)
     {
         if (!$product->hasVote()) {
