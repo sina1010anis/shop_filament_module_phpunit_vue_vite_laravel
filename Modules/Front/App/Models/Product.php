@@ -11,7 +11,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'smal_body', 'big_body', 'index_image', 'price', 'keeping', 'location', 'light', 'popularity'];
+    protected $fillable = ['name', 'smal_body', 'big_body', 'view', 'buy', 'index_image', 'price', 'keeping', 'location', 'light', 'popularity'];
 
     public function menu(){
 

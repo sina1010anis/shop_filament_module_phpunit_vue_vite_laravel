@@ -76,7 +76,7 @@
 
     </header-vue>
 
-    <sub-menu-vue ></sub-menu-vue>
+    <sub-menu-vue :products="{{$products}}"></sub-menu-vue>
 
     <footer-vue></footer-vue>
 

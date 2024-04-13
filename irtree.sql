@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 04, 2024 at 07:44 AM
+-- Generation Time: Apr 13, 2024 at 03:12 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.3.0
 
@@ -57,6 +57,14 @@ CREATE TABLE `cache` (
   `expiration` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `cache`
+--
+
+INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
+('dc6c46441ec4d3cc504e750c289416a6', 'i:2;', 1712499240),
+('dc6c46441ec4d3cc504e750c289416a6:timer', 'i:1712499240;', 1712499240);
+
 -- --------------------------------------------------------
 
 --
@@ -80,10 +88,20 @@ CREATE TABLE `cards` (
   `total_number` int NOT NULL,
   `total_price` bigint NOT NULL,
   `user_id` bigint UNSIGNED NOT NULL,
+  `status` int NOT NULL DEFAULT '1',
   `product_id` bigint UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cards`
+--
+
+INSERT INTO `cards` (`id`, `total_number`, `total_price`, `user_id`, `status`, `product_id`, `created_at`, `updated_at`) VALUES
+(7, -2, 0, 22, 1, 1, '2024-04-05 05:16:01', '2024-04-10 11:24:50'),
+(11, -2, 0, 22, 1, 1, '2024-04-05 05:16:01', '2024-04-10 11:24:50'),
+(15, 1, 75000, 21, 1, 1, '2024-04-10 11:23:50', '2024-04-10 11:24:50');
 
 -- --------------------------------------------------------
 
@@ -96,9 +114,20 @@ CREATE TABLE `comments` (
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint UNSIGNED NOT NULL,
+  `status` int NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `product_id` bigint UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `title`, `body`, `user_id`, `status`, `created_at`, `updated_at`, `product_id`) VALUES
+(4, 'test_3', 'test_3', 21, 0, '2024-04-08 02:56:58', '2024-04-08 02:56:58', 2),
+(5, 'test_3', 'test_3', 21, 0, '2024-04-08 02:57:29', '2024-04-08 02:57:29', 2),
+(11, 'testtest', 'testtest', 21, 1, '2024-04-08 13:08:29', '2024-04-08 13:08:29', 1);
 
 -- --------------------------------------------------------
 
@@ -272,7 +301,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (18, '2024_03_26_055035_create_image_sliders_table', 1),
 (19, '2024_03_26_055108_create_banners_table', 1),
 (20, '2024_03_31_072325_add_desc_to_products', 1),
-(21, '2024_03_31_075005_add_desc_to_products', 1);
+(21, '2024_03_31_075005_add_desc_to_products', 1),
+(22, '2024_04_08_053438_add_product_id_to_comments', 2),
+(23, '2024_04_10_062713_add status to comments', 3),
+(24, '2024_04_10_063939_add_status_to_cards', 4),
+(25, '2024_04_13_150834_add_view_to_products', 5);
 
 -- --------------------------------------------------------
 
@@ -311,6 +344,8 @@ CREATE TABLE `password_reset_tokens` (
 CREATE TABLE `products` (
   `id` bigint UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `buy` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `view` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `popularity` int NOT NULL,
   `light` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -331,9 +366,9 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `slug`, `popularity`, `light`, `location`, `keeping`, `smal_body`, `big_body`, `rev`, `index_image`, `price`, `sub_menu_id`, `menu_id`, `created_at`, `updated_at`) VALUES
-(1, 'گیاه زامفولیا', 'گیاه-زامفولیا', 1, 'کم', 'امریکا', 'اسان', 'smal_body', 'big_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_body', 'rev', '/storage/products/1.jpg', 45000, 3, 5, '2024-04-01 06:14:21', '2024-04-01 06:14:21'),
-(2, 'گیاه سانسنوریا', 'گیاه-سانسنوریا', 1, 'متوسط', 'ایتاریا', 'اسان', 'smal_body', 'big_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_body', 'rev', '/storage/products/2.jpg', 55000, 3, 5, '2024-04-01 06:14:21', '2024-04-01 06:14:21');
+INSERT INTO `products` (`id`, `name`, `buy`, `view`, `slug`, `popularity`, `light`, `location`, `keeping`, `smal_body`, `big_body`, `rev`, `index_image`, `price`, `sub_menu_id`, `menu_id`, `created_at`, `updated_at`) VALUES
+(1, 'گیاه زامفولیا', '0', '0', 'گیاه-زامفولیا', 38, 'کم', 'امریکا', 'اسان', 'smal_body', 'big_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_body', 'rev', '/storage/products/1.jpg', 45000, 3, 5, '2024-04-01 06:14:21', '2024-04-10 10:09:23'),
+(2, 'گیاه سانسنوریا', '0', '0', 'گیاه-سانسنوریا', 5, 'متوسط', 'ایتاریا', 'اسان', 'smal_body', 'big_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_body', 'rev', '/storage/products/2.jpg', 55000, 3, 5, '2024-04-01 06:14:21', '2024-04-13 11:27:14');
 
 -- --------------------------------------------------------
 
@@ -419,7 +454,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('2lNAarFJzVsVzXo5eVAv17rBqhCeaEID9ctzUoZW', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiNnRsdm5pNXRqUWg4Tm1XNVE3QkFmcW0xZGp3SXJQaTFwWlBlNFpnYyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTAzOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvcHJvZHVjdC8lREElQUYlREIlOEMlRDglQTclRDklODctJUQ4JUIyJUQ4JUE3JUQ5JTg1JUQ5JTgxJUQ5JTg4JUQ5JTg0JURCJThDJUQ4JUE3Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1712216619);
+('PEBwURXy7O32seEbph32VTvWNTYLhZOjbJpOw6KV', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRFRmV2tDY3VnNFhQWFR3QWFYc3B3VWJXWkh1OHVrdFZvaUhZTlNBRyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzg6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9jYXRlZ29yeS9tZW51LyVEOCVCMyVEOCVBNyVEOCVCMyVEOSU4OCVEOCVCMSVEQiU4QyVEOCVBNyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1712986007),
+('wk1pVMdPEe0lBA5pkcDWN7pdYIZTmn3sL2eVLaz4', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoic1R0WXBkNUwwMW5tdkhpSlRMUHZjQkhBZk1WUnA4bG14MWFFcjlGUSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1713021099);
 
 -- --------------------------------------------------------
 
@@ -494,6 +530,14 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(21, 'sina', 'sina1010anis@gmail.com', NULL, '$2y$12$gWGWXKztKXcNuOYSpQT8AeneXhtBYqBAW2yOEKvX7c6gq3O1xJrgK', NULL, '2024-04-05 03:55:41', '2024-04-05 03:55:41'),
+(22, '1010', 'sina101@gmail.com', NULL, '$2y$12$gWGWXKzyuKXcNuOYSpQT8AeneXhtBYqBAW2yOEKvX7c6gq3O1xJrgK', NULL, '2024-04-05 03:55:41', '2024-04-05 03:55:41');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -528,7 +572,8 @@ ALTER TABLE `cards`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `comments_user_id_foreign` (`user_id`);
+  ADD KEY `comments_user_id_foreign` (`user_id`),
+  ADD KEY `comments_product_id_foreign` (`product_id`);
 
 --
 -- Indexes for table `factors`
@@ -672,13 +717,13 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT for table `cards`
 --
 ALTER TABLE `cards`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `factors`
@@ -720,7 +765,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `order_products`
@@ -774,7 +819,7 @@ ALTER TABLE `titel_footers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Constraints for dumped tables
@@ -791,6 +836,7 @@ ALTER TABLE `cards`
 -- Constraints for table `comments`
 --
 ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
   ADD CONSTRAINT `comments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
