@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 13, 2024 at 03:12 PM
+-- Generation Time: Apr 14, 2024 at 06:47 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.3.0
 
@@ -367,8 +367,14 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `buy`, `view`, `slug`, `popularity`, `light`, `location`, `keeping`, `smal_body`, `big_body`, `rev`, `index_image`, `price`, `sub_menu_id`, `menu_id`, `created_at`, `updated_at`) VALUES
-(1, 'گیاه زامفولیا', '0', '0', 'گیاه-زامفولیا', 38, 'کم', 'امریکا', 'اسان', 'smal_body', 'big_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_body', 'rev', '/storage/products/1.jpg', 45000, 3, 5, '2024-04-01 06:14:21', '2024-04-10 10:09:23'),
-(2, 'گیاه سانسنوریا', '0', '0', 'گیاه-سانسنوریا', 5, 'متوسط', 'ایتاریا', 'اسان', 'smal_body', 'big_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_body', 'rev', '/storage/products/2.jpg', 55000, 3, 5, '2024-04-01 06:14:21', '2024-04-13 11:27:14');
+(1, 'گیاه زامفولیا', '5', '145', 'گیاه-زامفولیا', 38, 'کم', 'امریکا', 'اسان', 'smal_body', 'big_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_body', 'rev', '/storage/products/1.jpg', 45000, 3, 5, '2024-04-01 06:14:21', '2024-04-10 10:09:23'),
+(2, 'گیاه سانسوریا ساده', '20', '150', 'گیاه-سانسوریا-ساده', 5, 'متوسط', 'ایتاریا', 'اسان', 'smal_body', 'big_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_body', 'rev', '/storage/products/2.jpg', 55000, 3, 5, '2024-04-01 06:14:21', '2024-04-13 11:27:14'),
+(3, 'گیاه سانسوریا ابلغ پر', '11', '550', 'گیاه-سانسوریا-ابلغ-پر', 38, 'کم', 'امریکا', 'اسان', 'smal_body', 'big_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_body', 'rev', '/storage/products/9.jpg', 75000, 3, 5, '2024-04-01 06:14:21', '2024-04-10 10:09:23'),
+(4, 'گیاه سانسنوریا ساده بلند', '5', '200', 'گیاه-سانسنوریا-ساده-بلند', 5, 'متوسط', 'ایتاریا', 'اسان', 'smal_body', 'big_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_body', 'rev', '/storage/products/10.jpg', 80000, 3, 5, '2024-04-01 06:14:21', '2024-04-13 11:27:14'),
+(5, 'گیاه سانسوریا ساده کوچک', '8', '100', 'گیاه-سانسوریا-ساده-کوچک', 38, 'کم', 'امریکا', 'اسان', 'smal_body', 'big_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_body', 'rev', '/storage/products/11.jpg', 25000, 3, 5, '2024-04-01 06:14:21', '2024-04-10 10:09:23'),
+(6, 'گیاه سانسوریا ساده کوچک پر', '9', '310', 'گیاه-سانسوریا-ساده-کوچک-پر', 5, 'متوسط', 'ایتاریا', 'اسان', 'smal_body', 'big_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_body', 'rev', '/storage/products/12.jpg', 35000, 3, 5, '2024-04-01 06:14:21', '2024-04-13 11:27:14'),
+(7, 'گیاه سانسوریا ابلغ بلتد', '21', '440', 'گیاه-سانسوریا-ابلغ-بلند', 38, 'کم', 'امریکا', 'اسان', 'smal_body', 'big_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_body', 'rev', '/storage/products/13.jpg', 95000, 3, 5, '2024-04-01 06:14:21', '2024-04-10 10:09:23'),
+(8, 'گیاه سانسنوریا ابلغ کوچک', '11', '230', 'گیاه-سانسنوریا-ابلغ-کوچک', 5, 'متوسط', 'ایتاریا', 'اسان', 'smal_body', 'big_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_bodybig_body', 'rev', '/storage/products/14.jpg', 40000, 3, 5, '2024-04-01 06:14:21', '2024-04-14 03:16:30');
 
 -- --------------------------------------------------------
 
@@ -454,6 +460,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('BBYK2ENKZmhPkusC6814BQ6LDPrpL0IKRetiCIDM', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiakgwWGZFT0tvbzVqcURuMjE0QWNhZ1c5dVBiQUdUTGhzQ1pUQTVXYiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTU5OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvcHJvZHVjdC8lREElQUYlREIlOEMlRDglQTclRDklODctJUQ4JUIzJUQ4JUE3JUQ5JTg2JUQ4JUIzJUQ5JTg2JUQ5JTg4JUQ4JUIxJURCJThDJUQ4JUE3LSVEOCVBNyVEOCVBOCVEOSU4NCVEOCVCQS0lREElQTklRDklODglREElODYlREElQTkiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1713077190),
 ('PEBwURXy7O32seEbph32VTvWNTYLhZOjbJpOw6KV', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRFRmV2tDY3VnNFhQWFR3QWFYc3B3VWJXWkh1OHVrdFZvaUhZTlNBRyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzg6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9jYXRlZ29yeS9tZW51LyVEOCVCMyVEOCVBNyVEOCVCMyVEOSU4OCVEOCVCMSVEQiU4QyVEOCVBNyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1712986007),
 ('wk1pVMdPEe0lBA5pkcDWN7pdYIZTmn3sL2eVLaz4', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoic1R0WXBkNUwwMW5tdkhpSlRMUHZjQkhBZk1WUnA4bG14MWFFcjlGUSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1713021099);
 
@@ -777,7 +784,7 @@ ALTER TABLE `order_products`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `product_images`
