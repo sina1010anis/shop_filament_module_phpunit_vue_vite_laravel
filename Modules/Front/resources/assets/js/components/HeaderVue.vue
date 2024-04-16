@@ -19,6 +19,8 @@
             </div>
             <div class="col-10 d-flex justify-content-start align-items-center" dir="rtl">
                 <slot name="menus"></slot>
+                <a v-if="auth" class="px-3 my-f-13 my-color-g my-font-IYM menu-hover" href="/user">پنل کاربر</a>
+                <a v-if="!auth" class="px-3 my-f-13 my-color-g my-font-IYM menu-hover" href="/login">عضویت </a>
             </div>
             <div class="col-1 d-flex justify-content-center align-items-center p-1">
                 <div class="back_logo ">

@@ -6,6 +6,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Modules\Front\App\Models\Card;
+use Modules\User\App\Models\Comment;
+use Modules\User\App\Models\Factor;
+use Modules\User\App\Models\Report;
 
 class User extends Authenticatable
 {
@@ -20,6 +24,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'img'
     ];
 
     /**
@@ -44,4 +49,31 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function factors()
+    {
+        return $this->hasMany(Factor::class, 'user_id', 'id');
+    }
+
+    public function comments()
+    {
+
+        return $this->hasMany(Comment::class, 'user_id', 'id');
+
+    }
+
+    public function cards()
+    {
+
+        return $this->hasMany(Card::class, 'user_id', 'id');
+
+    }
+
+    public function reposts()
+    {
+
+        return $this->hasMany(Report::class, 'user_id', 'id');
+
+    }
+
 }
