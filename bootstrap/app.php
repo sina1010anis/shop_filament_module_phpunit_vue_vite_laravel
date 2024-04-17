@@ -16,6 +16,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         //$middleware->web(['throttle:r-test']);
+        $middleware->alias([
+            'Payment' => Shetabit\Payment\Facade\Payment::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

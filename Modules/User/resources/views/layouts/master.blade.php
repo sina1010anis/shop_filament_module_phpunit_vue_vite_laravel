@@ -33,7 +33,7 @@
                         <a class="d-block w-100 text-center my-2 item-menu-user my-font-IYL my-color-b-900 my-f-13 p-2" href="{{route('user.dashboard')}}">
                             <span class="">صفحه اصلی</span>
                         </a>
-                        <a class="d-block  w-100 text-center my-2 item-menu-user my-font-IYL my-color-b-900 my-f-13 p-2" href="/">
+                        <a class="d-block  w-100 text-center my-2 item-menu-user my-font-IYL my-color-b-900 my-f-13 p-2" href="{{route('user.view.cart')}}">
                             <span class="">سبد خرید </span>
                         </a>
                         <a class="d-block  w-100 text-center my-2 item-menu-user my-font-IYL my-color-b-900 my-f-13 p-2" href="/">

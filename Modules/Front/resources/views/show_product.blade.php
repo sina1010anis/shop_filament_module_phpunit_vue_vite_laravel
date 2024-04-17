@@ -41,15 +41,17 @@
         <template #item_cards>
             @auth()
                 @forelse ($crads_compose as $card)
-                    <div>
+                    <div class="my-pos-rel">
                         <a href="{{route('front.view.product', ['product' => $card->product->product->slug])}}" class="item-cart w-100 p-2 border-b-2 d-flex justify-content-between align-items-center" dir="rtl">
                             <span class="my-f-10 my-color-b-800 my-font-IYM">نام  : {{$card->product->product->name}}</span>
                             <span class="my-f-10 my-color-b-800 my-font-IYM">قمیت  : {{$card->total_price}}</span>
                             <span class="my-f-10 my-color-b-800 my-font-IYM"> تعداد : {{$card->total_number}}</span>
                             <img src="/storage/products/1.jpg" class="h-100" alt="name product">
-
                         </a>
-                        <i class="bi bi-file-minus"></i>
+                        @if ($card->total_number > 1)
+                            <i @click="delete_product_card('one', {{$card->id}})" class="bi bi-file-minus icon-delete-product-card" title="حذف یک محصول"></i>
+                        @endif
+                            <i @click="delete_product_card('all', {{$card->id}})" class="bi bi-calendar2-x icon-delete-product-card-all" title="حذف دسته جمعی محصول"></i>
                     </div>
                 @empty
                     <div class="w-100 p-2 my-font-IYL my-f-12 my-color-b-700 text-center">

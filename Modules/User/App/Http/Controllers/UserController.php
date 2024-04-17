@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\User\App\Http\Requests\AddCommentRequest;
 use Modules\User\App\Models\Comment;
+use Shetabit\Multipay\Exceptions\InvalidPaymentException;
+use Shetabit\Multipay\Invoice;
+use Shetabit\Payment\Facade\Payment;
 
 class UserController extends Controller
 {
@@ -31,6 +34,22 @@ class UserController extends Controller
         }
 
         return back()->with('error-msg','ابتدا وارد وب سایت شوید');
+    }
+
+    public function buyProduct()
+    {
+        return Payment::purchase(
+            (new Invoice)->amount(1000),
+            function($driver, $transactionId) {
+                // Store transactionId in database.
+                // We need the transactionId to verify payment in the future.
+            }
+        )->pay()->toJson();
+    }
+
+    public function viewCart()
+    {
+        return view('user::cart');
     }
 
     /**
