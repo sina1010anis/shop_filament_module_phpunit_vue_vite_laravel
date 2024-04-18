@@ -27,6 +27,8 @@ class User extends Authenticatable
         'img'
     ];
 
+    protected $attributes = ['img' =>'/storage/user/unnamed.jpg'];
+
     /**
      * The attributes that should be hidden for serialization.
      *

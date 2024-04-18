@@ -25,7 +25,7 @@
 <div class="d-flex justify-content-around align-items-center my-2">
     <form action="{{route('user.buy')}}" method="POST">
         @csrf
-        <button type="submit" class="my-btn-g border-0 rounded-1 btn my-font-ISL my-f-13">پرداخت فاکتور</button>
+        <button type="submit" class="my-btn-g border-0 rounded-1 btn my-font-ISL-i my-f-13">پرداخت فاکتور</button>
     </form>
     <span class="my-color-g my-font-IYL my-f-11 my-color-b-700">قیمت کل : {{$crads_compose->sum('total_price')}} </span>
     <span class="my-color-g my-font-IYL my-f-11 my-color-b-700"> تعداد کل : {{$crads_compose->sum('total_number')}}</span>

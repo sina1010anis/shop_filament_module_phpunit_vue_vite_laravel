@@ -15,18 +15,23 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::prefix('/user')->as('user.')->middleware(['auth'])->group(function (){
+    
     Route::get('/test', [UserController::class, 'index']);
+
     Route::post('/new/comment/{product_id}', [UserController::class, 'newComment'])->name('new.comment');
+
     Route::get('/cart', [UserController::class, 'viewCart'])->name('view.cart');
+
     Route::post('/buy/product', [UserController::class, 'buyProduct'])->name('buy');
 
     Route::view('/', 'user::index')->name('dashboard');
 
-    Route::middleware('auth')->group(function () {
-        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    });
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 
 });
 

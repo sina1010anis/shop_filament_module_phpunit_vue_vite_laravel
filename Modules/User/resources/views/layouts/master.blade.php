@@ -13,6 +13,7 @@
     <meta name="keywords" content="{{ $keywords ?? '' }}">
     <meta name="author" content="{{ $author ?? '' }}">
     <link rel="stylesheet" href="/css/my_style.css">
+    <link rel="shortcut icon" href="/storage/img_core/icons8-flower-48.png" />
     @vite('Modules/User/resources/assets/css/app.css')
 </head>
 
