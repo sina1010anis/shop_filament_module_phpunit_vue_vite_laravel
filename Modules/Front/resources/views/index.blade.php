@@ -82,15 +82,15 @@
 
     <product-vue :title="'جدیدترین محصولات'" :image="'view_box_product.png'" :products="{{$products}}"></product-vue>
 
-    <banner-vue :image="{{$banner->find(1)}}"></banner-vue>
+    <banner-vue :image="{{$banner->find(2)}}"></banner-vue>
 
     <product-vue :title="'پرفروشترین محصولات'" :image="'view_box_product.png'" :products="{{$products}}"></product-vue>
 
-    <banner-vue :image="{{$banner->find(1)}}"></banner-vue>
+    <banner-vue :image="{{$banner->find(2)}}"></banner-vue>
 
     <product-vue :title="'خاصترین محصولات'" :image="'view_box_product.png'" :products="{{$products}}"></product-vue>
 
-    <banner-vue :image="{{$banner->find(1)}}"></banner-vue>
+    <banner-vue :image="{{$banner->find(2)}}"></banner-vue>
 
     <product-vue :title="'پرترفدارترین محصولات'" :image="'view_box_product.png'" :products="{{$products}}"></product-vue>
 

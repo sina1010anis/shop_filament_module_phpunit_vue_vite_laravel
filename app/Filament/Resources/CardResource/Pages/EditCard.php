@@ -16,4 +16,16 @@ class EditCard extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
+
+    public function getCreatedNotificationMessage(): string
+    {
+
+        return 'محصول با موفقیت از سبد خرید ویرایش شد';
+
+    }
 }

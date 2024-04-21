@@ -6,12 +6,15 @@ use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\RelationManagers;
 use Modules\Front\App\Models\Product;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Front\App\Models\Menu;
+use Modules\Front\App\Models\SubMenu;
 
 class ProductResource extends Resource
 {
@@ -67,10 +70,9 @@ class ProductResource extends Resource
                     ->required()
                     ->numeric()
                     ->prefix('$'),
-                Forms\Components\TextInput::make('sub_menu_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('menu_id')
-                    ->numeric(),
+                    Select::make('sub_menu')->label('Sub Menu')->options(SubMenu::all()->pluck('name', 'id'))->required()->searchable(),
+                    Select::make('menu')->label('Menu')->options(Menu::all()->pluck('name', 'id'))->required()->searchable(),
+
             ]);
     }
 
@@ -98,10 +100,10 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('price')
                     ->money()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('sub_menu_id')
+                Tables\Columns\TextColumn::make('sub_menu.name')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('menu_id')
+                Tables\Columns\TextColumn::make('menu.name')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

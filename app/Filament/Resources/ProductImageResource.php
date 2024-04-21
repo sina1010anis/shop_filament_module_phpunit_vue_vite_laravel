@@ -6,12 +6,14 @@ use App\Filament\Resources\ProductImageResource\Pages;
 use App\Filament\Resources\ProductImageResource\RelationManagers;
 use Modules\Front\App\Models\ProductImage;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Front\App\Models\Product;
 
 class ProductImageResource extends Resource
 {
@@ -31,9 +33,7 @@ class ProductImageResource extends Resource
                 Forms\Components\Textarea::make('name')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('product_id')
-                    ->required()
-                    ->numeric(),
+                    Select::make('product_id')->label('Name Product')->options(Product::all()->pluck('name', 'id'))->required()->searchable(),
             ]);
     }
 
@@ -41,7 +41,13 @@ class ProductImageResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('product_id')
+                Tables\Columns\TextColumn::make('name')
+                ->numeric()
+                ->sortable(),
+                Tables\Columns\TextColumn::make('src')
+                ->numeric()
+                ->sortable(),
+                Tables\Columns\TextColumn::make('product.name')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

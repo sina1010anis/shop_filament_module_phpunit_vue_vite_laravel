@@ -2,16 +2,19 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BannerResource\Pages;
-use App\Filament\Resources\BannerResource\RelationManagers;
-use Modules\Front\App\Models\Banner;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
+use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Modules\Front\App\Models\Banner;
+use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\BannerResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\BannerResource\RelationManagers;
+use Filament\Tables\Columns\ToggleColumn;
 
 class BannerResource extends Resource
 {
@@ -32,9 +35,11 @@ class BannerResource extends Resource
                 Forms\Components\TextInput::make('src')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('mode')
-                    ->required()
-                    ->numeric(),
+                    Select::make('mode')
+                    ->options([
+                        '0' => 'None Link',
+                        '1' => 'Link',
+                    ])->required(),
                 Forms\Components\TextInput::make('link')
                     ->maxLength(255),
             ]);
@@ -44,13 +49,13 @@ class BannerResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                ->sortable(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('src')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('mode')
-                    ->numeric()
-                    ->sortable(),
+                ToggleColumn::make('mode')->label('mode (Link)'),
                 Tables\Columns\TextColumn::make('link')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')

@@ -16,4 +16,16 @@ class EditBanner extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
+
+    public function getSavedNotificationMessage(): string
+    {
+
+        return 'بنر با موفقیت ویرایش شد';
+
+    }
 }

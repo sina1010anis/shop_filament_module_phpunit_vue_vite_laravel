@@ -6,12 +6,14 @@ use App\Filament\Resources\ProductPriceResource\Pages;
 use App\Filament\Resources\ProductPriceResource\RelationManagers;
 use Modules\Front\App\Models\ProductPrice;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Front\App\Models\Product;
 
 class ProductPriceResource extends Resource
 {
@@ -32,9 +34,8 @@ class ProductPriceResource extends Resource
                 Forms\Components\Textarea::make('model')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('product_id')
-                    ->required()
-                    ->numeric(),
+                    Select::make('product_id')->label('Name Product')->options(Product::all()->pluck('name', 'id'))->required()->searchable(),
+
             ]);
     }
 
@@ -42,10 +43,13 @@ class ProductPriceResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('model')
+                    ->money()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('price')
                     ->money()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('product_id')
+                Tables\Columns\TextColumn::make('product.name')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

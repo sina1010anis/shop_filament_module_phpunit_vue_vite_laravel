@@ -9,4 +9,16 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateBanner extends CreateRecord
 {
     protected static string $resource = BannerResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
+
+    public function getCreatedNotificationMessage(): string
+    {
+
+        return 'بنر با موفقیت شاخته شد';
+
+    }
 }

@@ -6,12 +6,14 @@ use App\Filament\Resources\SubMenuResource\Pages;
 use App\Filament\Resources\SubMenuResource\RelationManagers;
 use Modules\Front\App\Models\SubMenu;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Front\App\Models\Menu;
 
 class SubMenuResource extends Resource
 {
@@ -34,9 +36,7 @@ class SubMenuResource extends Resource
                 Forms\Components\Textarea::make('src')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('menu_id')
-                    ->required()
-                    ->numeric(),
+                    Select::make('menu_id')->label('Menu')->options(Menu::all()->pluck('name', 'id'))->required()->searchable(),
             ]);
     }
 
@@ -48,7 +48,7 @@ class SubMenuResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('menu_id')
+                Tables\Columns\TextColumn::make('menu.name')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

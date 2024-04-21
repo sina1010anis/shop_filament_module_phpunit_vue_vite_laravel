@@ -6,9 +6,11 @@ use App\Filament\Resources\ImageSliderResource\Pages;
 use App\Filament\Resources\ImageSliderResource\RelationManagers;
 use Modules\Front\App\Models\ImageSlider;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -31,9 +33,12 @@ class ImageSliderResource extends Resource
                 Forms\Components\TextInput::make('src')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('mode')
-                    ->required()
-                    ->numeric(),
+                    Select::make('mode')
+                    ->options([
+                        '0' => 'Slider',
+                        '1' => 'Slider 1',
+                        '2' => 'Slider 2',
+                    ])->required(),
                 Forms\Components\TextInput::make('link')
                     ->maxLength(255),
             ]);
@@ -47,9 +52,11 @@ class ImageSliderResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('src')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('mode')
-                    ->numeric()
-                    ->sortable(),
+                    SelectColumn::make('mode')
+                    ->options([
+                        '0' => 'None Link',
+                        '1' => 'Anlink',
+                    ]),
                 Tables\Columns\TextColumn::make('link')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')

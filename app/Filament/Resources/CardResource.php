@@ -4,14 +4,19 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\CardResource\Pages;
 use App\Filament\Resources\CardResource\RelationManagers;
+use App\Models\User;
 use Modules\Front\App\Models\Card;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Front\App\Models\Product;
+use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Columns\ToggleColumn;
 
 class CardResource extends Resource
 {
@@ -31,16 +36,13 @@ class CardResource extends Resource
                 Forms\Components\TextInput::make('total_price')
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('user_id')
-                    ->required()
-                    ->numeric(),
+                    Select::make('user_id')->label('Name User')->options(User::all()->pluck('name', 'id'))->required()->searchable(),
                 Forms\Components\TextInput::make('status')
                     ->required()
                     ->numeric()
                     ->default(1),
-                Forms\Components\TextInput::make('product_id')
-                    ->required()
-                    ->numeric(),
+                    Select::make('product_id')->label('Name Product')->options(Product::all()->pluck('name', 'id'))->required()->searchable(),
+
             ]);
     }
 
@@ -54,13 +56,11 @@ class CardResource extends Resource
                 Tables\Columns\TextColumn::make('total_price')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('user_id')
+                Tables\Columns\TextColumn::make('user.name')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('status')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('product_id')
+                    ToggleColumn::make('status'),
+                Tables\Columns\TextColumn::make('product.product.name')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

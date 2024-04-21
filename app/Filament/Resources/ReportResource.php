@@ -4,8 +4,10 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ReportResource\Pages;
 use App\Filament\Resources\ReportResource\RelationManagers;
+use App\Models\User;
 use Modules\User\App\Models\Report;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -28,9 +30,7 @@ class ReportResource extends Resource
                 Forms\Components\TextInput::make('note')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('user_id')
-                    ->required()
-                    ->numeric(),
+                Select::make('user_id')->label('User')->options(User::all()->pluck('name', 'id'))->required()->searchable(),
                 Forms\Components\TextInput::make('status')
                     ->required()
                     ->numeric(),
@@ -43,7 +43,7 @@ class ReportResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('note')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('user_id')
+                Tables\Columns\TextColumn::make('user.name')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('status')
