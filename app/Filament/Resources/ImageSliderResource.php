@@ -2,18 +2,20 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Forms;
+use Filament\Tables;
+use Filament\Forms\Form;
+use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\SelectColumn;
+use Illuminate\Database\Eloquent\Builder;
+use Modules\Front\App\Models\ImageSlider;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ImageSliderResource\Pages;
 use App\Filament\Resources\ImageSliderResource\RelationManagers;
-use Modules\Front\App\Models\ImageSlider;
-use Filament\Forms;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
-use Filament\Tables;
-use Filament\Tables\Columns\SelectColumn;
-use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\FileUpload;
 
 class ImageSliderResource extends Resource
 {
@@ -30,9 +32,7 @@ class ImageSliderResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('src')
-                    ->required()
-                    ->maxLength(255),
+                    FileUpload::make('src')->required()->directory('slider'),
                     Select::make('mode')
                     ->options([
                         '0' => 'Slider',
@@ -50,8 +50,7 @@ class ImageSliderResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('src')
-                    ->searchable(),
+                    ImageColumn::make('src')->size(100),
                     SelectColumn::make('mode')
                     ->options([
                         '0' => 'None Link',

@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\BannerResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\BannerResource\RelationManagers;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\ToggleColumn;
 
 class BannerResource extends Resource
@@ -32,9 +34,7 @@ class BannerResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('src')
-                    ->required()
-                    ->maxLength(255),
+                    FileUpload::make('src')->required()->directory('index'),
                     Select::make('mode')
                     ->options([
                         '0' => 'None Link',
@@ -53,8 +53,7 @@ class BannerResource extends Resource
                 ->sortable(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('src')
-                    ->searchable(),
+                    ImageColumn::make('src')->size(100),
                 ToggleColumn::make('mode')->label('mode (Link)'),
                 Tables\Columns\TextColumn::make('link')
                     ->searchable(),

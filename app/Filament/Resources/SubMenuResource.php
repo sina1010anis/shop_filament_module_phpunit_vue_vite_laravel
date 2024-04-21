@@ -6,10 +6,12 @@ use App\Filament\Resources\SubMenuResource\Pages;
 use App\Filament\Resources\SubMenuResource\RelationManagers;
 use Modules\Front\App\Models\SubMenu;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -30,9 +32,11 @@ class SubMenuResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
+                    FileUpload::make('src')->required()->directory('image_menu'),
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
+
                 Forms\Components\Textarea::make('src')
                     ->required()
                     ->columnSpanFull(),
@@ -48,6 +52,7 @@ class SubMenuResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
+                    ImageColumn::make('src')->size(100),
                 Tables\Columns\TextColumn::make('menu.name')
                     ->numeric()
                     ->sortable(),

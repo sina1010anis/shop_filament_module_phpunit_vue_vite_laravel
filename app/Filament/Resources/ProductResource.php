@@ -2,19 +2,21 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProductResource\Pages;
-use App\Filament\Resources\ProductResource\RelationManagers;
-use Modules\Front\App\Models\Product;
 use Filament\Forms;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Resources\Resource;
 use Modules\Front\App\Models\Menu;
+use Filament\Forms\Components\Select;
+use Modules\Front\App\Models\Product;
 use Modules\Front\App\Models\SubMenu;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\FileUpload;
+use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\ProductResource\Pages;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\ProductResource\RelationManagers;
 
 class ProductResource extends Resource
 {
@@ -63,9 +65,7 @@ class ProductResource extends Resource
                 Forms\Components\Textarea::make('rev')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('index_image')
-                    ->required()
-                    ->columnSpanFull(),
+                    FileUpload::make('index_image')->directory('products')->required(),
                 Forms\Components\TextInput::make('price')
                     ->required()
                     ->numeric()
@@ -82,6 +82,8 @@ class ProductResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
+
+                ImageColumn::make('index_image')->square()->width(100)->height(100)->extraImgAttributes(['alt' => 'test']),
                 Tables\Columns\TextColumn::make('buy')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('view')

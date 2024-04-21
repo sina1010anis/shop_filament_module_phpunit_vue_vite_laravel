@@ -11,7 +11,7 @@
                 <a :href="'/product/'+product.slug">
                     <div class="w-100 h-100 p-2 rounded-3 overflow-hidden border">
                         <div class="w-100" style="height: 200px;">
-                            <img :src="product.index_image" class="w-100 h-100" :alt="product.name" loading="lazy">
+                            <img :src="'/storage'+product.index_image" class="w-100 h-100" :alt="product.name" loading="lazy">
                         </div>
                         <div>
                             <h6 class="mt-3 my-color-b-800 text-center my-font-ISL">{{ product.name }}</h6>

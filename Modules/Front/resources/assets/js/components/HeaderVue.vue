@@ -35,7 +35,7 @@
                     <div class="col-10 row">
                         <div class="col-10 my-pos-rel">
                             <div class="my-obj-center" style="width: 200px;height: 200px;">
-                                <img v-if="img_menu != null" :src="img_menu" class="w-100 h-100" alt="">
+                                <img v-if="img_menu != null" :src="'/storage'+img_menu" class="w-100 h-100" alt="">
                                 <img v-else src="/storage/img_core/logo.png" class="w-100 h-100" alt="">
                             </div>
                         </div>

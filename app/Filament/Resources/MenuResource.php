@@ -6,10 +6,12 @@ use App\Filament\Resources\MenuResource\Pages;
 use App\Filament\Resources\MenuResource\RelationManagers;
 use Modules\Front\App\Models\Menu;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -39,9 +41,8 @@ class MenuResource extends Resource
                 Forms\Components\TextInput::make('link')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('src')
-                    ->required()
-                    ->columnSpanFull(),
+                    FileUpload::make('src')->required()->directory('image_menu'),
+
             ]);
     }
 
@@ -53,6 +54,7 @@ class MenuResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
+                    ImageColumn::make('src')->size(100),
                     SelectColumn::make('mode')
                     ->options([
                         '0' => 'As Menu',

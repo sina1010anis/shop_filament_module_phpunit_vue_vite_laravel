@@ -4,8 +4,10 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\FactorResource\Pages;
 use App\Filament\Resources\FactorResource\RelationManagers;
+use App\Models\User;
 use Modules\User\App\Models\Factor;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -38,9 +40,8 @@ class FactorResource extends Resource
                 Forms\Components\TextInput::make('code_pay')
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('user_id')
-                    ->required()
-                    ->numeric(),
+                    Select::make('user_id')->searchable()
+                        ->options(User::all()->pluck('name', 'id')),
             ]);
     }
 
@@ -60,7 +61,7 @@ class FactorResource extends Resource
                 Tables\Columns\TextColumn::make('code_pay')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('user_id')
+                Tables\Columns\TextColumn::make('user.name')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

@@ -6,10 +6,12 @@ use App\Filament\Resources\ProductImageResource\Pages;
 use App\Filament\Resources\ProductImageResource\RelationManagers;
 use Modules\Front\App\Models\ProductImage;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -27,9 +29,7 @@ class ProductImageResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Textarea::make('src')
-                    ->required()
-                    ->columnSpanFull(),
+                FileUpload::make('src')->required()->directory('products'),
                 Forms\Components\Textarea::make('name')
                     ->required()
                     ->columnSpanFull(),
@@ -44,9 +44,7 @@ class ProductImageResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                 ->numeric()
                 ->sortable(),
-                Tables\Columns\TextColumn::make('src')
-                ->numeric()
-                ->sortable(),
+                ImageColumn::make('src')->size(100),
                 Tables\Columns\TextColumn::make('product.name')
                     ->numeric()
                     ->sortable(),
