@@ -4,8 +4,10 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
+use Filament\Forms\Set;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Illuminate\Support\Str;
 use Filament\Resources\Resource;
 use Modules\Front\App\Models\Menu;
 use Filament\Forms\Components\Select;
@@ -32,7 +34,11 @@ class ProductResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->live()
+                    ->afterStateUpdated(function (Set $set, $state){
+                        $set('slug', Str::slug($state));
+                    }),
                 Forms\Components\TextInput::make('buy')
                     ->required()
                     ->maxLength(255)
