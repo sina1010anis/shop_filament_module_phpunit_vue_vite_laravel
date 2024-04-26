@@ -53,7 +53,7 @@ class CommentResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('user_id')
+                Tables\Columns\TextColumn::make('user.name')
                     ->numeric()
                     ->sortable(),
                 ToggleColumn::make('status'),
@@ -65,9 +65,10 @@ class CommentResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('product_id')
+                Tables\Columns\TextColumn::make('product.name')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->url(fn ($record) => route('front.view.product', ['product'=>$record->product->slug])),
             ])
             ->filters([
                 //
