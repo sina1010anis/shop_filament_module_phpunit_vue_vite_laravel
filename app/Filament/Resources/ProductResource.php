@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
-use Filament\Forms\Components\Wizard\Step;
 use Filament\Tables;
 use Filament\Forms\Set;
 use Filament\Forms\Form;
@@ -13,6 +12,7 @@ use Filament\Resources\Resource;
 use Modules\Front\App\Models\Menu;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Wizard;
 use Modules\Front\App\Models\Product;
 use Modules\Front\App\Models\SubMenu;
 use Filament\Forms\Components\Section;
@@ -20,9 +20,10 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Forms\Components\Wizard\Step;
 use Filament\Forms\Components\MarkdownEditor;
 use App\Filament\Resources\ProductResource\Pages;
-use Filament\Forms\Components\Wizard;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class ProductResource extends Resource
 {
@@ -218,7 +219,7 @@ class ProductResource extends Resource
 
                 Tables\Columns\TextColumn::make('price')
 
-                    ->money()
+                    ->money('IRR')
 
                     ->sortable(),
 
@@ -265,15 +266,16 @@ class ProductResource extends Resource
 
             ])
             ->actions([
-
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-                ViewAction::make()
+                ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+                ExportBulkAction::make()
+
             ]);
     }
 
