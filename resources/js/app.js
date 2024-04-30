@@ -1,5 +1,7 @@
 import './bootstrap';
 
+
+
 import {createApp} from 'vue/dist/vue.esm-bundler';
 import HelloWorld from "./components/HelloWorld.vue";
 import 'bootstrap/dist/css/bootstrap.css'
@@ -18,11 +20,12 @@ const app = createApp({
     },
     methods: {
         btn_send(btn) {
-            axios.post('/reverb', {btn:btn}).then((res)=>{
-                console.log('Send Event');
-            })
+
+            axios.post('/reverb', {btn:btn})
+
         }
     },
+    
 })
 
 app.mount('#app')

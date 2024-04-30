@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::view('/reverb', 'reverb');
-Route::post('/reverb', [ReverbController::class, 'reverb']);
+Route::post('/reverb', [ReverbController::class, 'reverb'])->name('reverb');
 // Route::get('/test', function (){
 
 // })

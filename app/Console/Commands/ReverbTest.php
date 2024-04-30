@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Events\ButtonClick;
+use App\Events\Message;
 use Illuminate\Console\Command;
 
 class ReverbTest extends Command
@@ -27,6 +28,6 @@ class ReverbTest extends Command
     public function handle()
     {
         echo 'Hello Reverb';
-        ButtonClick::dispatch();
+        Message::dispatch();
     }
 }

@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
 
 </head>
 <body>
@@ -21,6 +20,12 @@
             <button class="btn btn-warning m-3" @click="btn_send('Warning')">Warning Button --<span>0</span>--</button>
 
         </div>
+        <form action="{{route('reverb')}}" method="post">
+            @csrf
+            <button type="submit">Send</button>
+        </form>
     </div>
+    @vite('resources/js/app.js')
+
 </body>
 </html>

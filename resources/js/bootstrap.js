@@ -10,6 +10,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 
 import './echo';
-window.Echo.channel('message').listen('ButtonClick', (e)=>{
+window.Echo.channel('message').listen('Message', (e)=>{
     console.log(e);
 })
