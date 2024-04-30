@@ -1,14 +1,17 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReverbController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
-Route::get('/test-11', function () {
-    return 'test';
-});
+Route::view('/reverb', 'reverb');
+Route::post('/reverb', [ReverbController::class, 'reverb']);
+// Route::get('/test', function (){
+
+// })
 
 require __DIR__.'/auth.php';

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ButtonClick;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,6 +20,13 @@ class ProfileController extends Controller
         return view('profile.edit', [
             'user' => $request->user(),
         ]);
+    }
+
+    public function reverb(Request $request)
+    {
+
+        ButtonClick::dispatch($request->btn);
+
     }
 
     /**
