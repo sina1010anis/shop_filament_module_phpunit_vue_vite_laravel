@@ -10,6 +10,6 @@ class ReverbController extends Controller
 {
     public function reverb(Request $request)
     {
-        Message::dispatch();
+        Message::dispatch($request->btn);
     }
 }

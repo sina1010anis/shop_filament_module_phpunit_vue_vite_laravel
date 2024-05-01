@@ -11,19 +11,15 @@
 <body>
     <div id="app">
         <div class="w-100 d-flex justify-content-center align-items-center" style="height: 100vh">
-            <button class="btn btn-danger m-3" @click="btn_send('Danger')">Danger Button --<span>0</span>--</button>
+            <button class="btn btn-danger m-3" @click="btn_send('Danger')">Danger Button --<span id="Danger">0</span>--</button>
 
-            <button class="btn btn-info m-3" @click="btn_send('Info')">Info Button --<span>0</span>--</button>
+            <button class="btn btn-info m-3" @click="btn_send('Info')">Info Button --<span id="Info">0</span>--</button>
 
-            <button class="btn btn-success m-3" @click="btn_send('Success')">Success Button --<span>0</span>--</button>
+            <button class="btn btn-success m-3" @click="btn_send('Success')">Success Button --<span id="Success">0</span>--</button>
 
-            <button class="btn btn-warning m-3" @click="btn_send('Warning')">Warning Button --<span>0</span>--</button>
+            <button class="btn btn-warning m-3" @click="btn_send('Warning')">Warning Button --<span id="Warning">0</span>--</button>
 
         </div>
-        <form action="{{route('reverb')}}" method="post">
-            @csrf
-            <button type="submit">Send</button>
-        </form>
     </div>
     @vite('resources/js/app.js')
 

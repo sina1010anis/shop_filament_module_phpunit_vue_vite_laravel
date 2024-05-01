@@ -13,7 +13,11 @@ import axios from 'axios';
 
 const app = createApp({
     data:()=>({
-        infoApp : '(Laravel 10.43) (Vue 3)'
+        infoApp : '(Laravel 10.43) (Vue 3)',
+        Danger : 0,
+        Info : 0,
+        Warning : 0,
+        Success : 0,
     }),
     components:{
         HelloWorld:HelloWorld
@@ -25,7 +29,11 @@ const app = createApp({
 
         }
     },
-    
+    created(){
+        window.Echo.channel('message').listen('Message', (e)=>{
+            document.getElementById(e.mode_btn).innerText++
+        })
+    }
 })
 
 app.mount('#app')
