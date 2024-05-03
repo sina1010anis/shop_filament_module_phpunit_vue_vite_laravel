@@ -28,6 +28,6 @@ class ReverbTest extends Command
     public function handle()
     {
         echo 'Hello Reverb';
-        Message::dispatch();
+        Message::dispatch('test');
     }
 }

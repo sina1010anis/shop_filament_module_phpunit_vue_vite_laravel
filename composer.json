@@ -9,8 +9,10 @@
         "filament/filament": "^3.2",
         "laravel/breeze": "^2.0",
         "laravel/framework": "^11.0",
+        "laravel/octane": "*",
         "laravel/reverb": "@beta",
         "laravel/tinker": "^2.9",
+        "nativephp/electron": "^0.6.2",
         "nwidart/laravel-modules": "^10.0",
         "pxlrbt/filament-excel": "^2.3",
         "shetabit/payment": "^5.8"

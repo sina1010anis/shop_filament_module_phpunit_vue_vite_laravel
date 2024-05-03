@@ -11,6 +11,7 @@
 <body>
     <div id="app">
         <div class="w-100 d-flex justify-content-center align-items-center" style="height: 100vh">
+            
             <button class="btn btn-danger m-3" @click="btn_send('Danger')">Danger Button --<span id="Danger">0</span>--</button>
 
             <button class="btn btn-info m-3" @click="btn_send('Info')">Info Button --<span id="Info">0</span>--</button>
