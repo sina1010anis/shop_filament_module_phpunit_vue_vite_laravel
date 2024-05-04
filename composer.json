@@ -9,7 +9,7 @@
         "filament/filament": "^3.2",
         "laravel/breeze": "^2.0",
         "laravel/framework": "^11.0",
-        "laravel/octane": "*",
+        "laravel/octane": "^2.3",
         "laravel/reverb": "@beta",
         "laravel/tinker": "^2.9",
         "nativephp/electron": "^0.6.2",
