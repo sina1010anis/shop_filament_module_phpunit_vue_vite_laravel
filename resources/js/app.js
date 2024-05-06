@@ -18,6 +18,7 @@ const app = createApp({
         Info : 0,
         Warning : 0,
         Success : 0,
+        value_msg:null
     }),
     components:{
         HelloWorld:HelloWorld
@@ -27,12 +28,34 @@ const app = createApp({
 
             axios.post('/reverb', {btn:btn})
 
+        },
+        btn_send_msg()
+        {
+            window.Echo.join('chatRoom').whisper('msg_new', {
+                msg:this.value_msg
+            })
         }
     },
     created(){
         window.Echo.channel('message').listen('Message', (e)=>{
             document.getElementById(e.mode_btn).innerText++
         })
+        window.Echo.join('chatRoom')
+            .here((users) => {
+                console.log(users);
+            })
+            .joining((user) => {
+                console.log(user.name);
+            })
+            .leaving((user) => {
+                console.log(user.name);
+            })
+            .error((error) => {
+                console.error(error);
+            })
+            .listenForWhisper('msg_new', (e)=>{
+                console.log(e);
+            });
     }
 })
 
