@@ -14,6 +14,7 @@
         "laravel/tinker": "^2.9",
         "nativephp/electron": "^0.6.2",
         "nwidart/laravel-modules": "^10.0",
+        "predis/predis": "^2.2",
         "pxlrbt/filament-excel": "^2.3",
         "shetabit/payment": "^5.8"
     },

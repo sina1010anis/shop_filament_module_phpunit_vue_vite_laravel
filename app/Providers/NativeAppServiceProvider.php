@@ -17,9 +17,6 @@ class NativeAppServiceProvider implements ProvidesPhpIni
     public function boot(): void
     {
         Window::open()->route('reverb.view');
-        Notification::title('Hello from NativePHP')
-        ->message('This is a detail message coming from your Laravel app.')
-        ->show();
     }
 
     /**
