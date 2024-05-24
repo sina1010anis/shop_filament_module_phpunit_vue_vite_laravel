@@ -10,27 +10,7 @@ class RedisController extends Controller
     public function index()
     {
 
-        // for ($i = 1 ; $i <= 50 ; $i++) {
-
-        //     Redis::executeRaw(['zadd', 'x:'.$i, '1', 'data-ones']);
-
-        //     for ($j = 1 ; $j < 10 ; $j++) {
-
-        //         Redis::executeRaw(['zadd', 'x:'.$i, $j, fake()->name()]);
-
-        //     }
-
-        // }
-
-        for ($i = 1 ; $i <= 50 ; $i++) {
-
-            echo '<pre>';
-
-            print_r(Redis::executeRaw(['zrevrange', 'x:'.$i, '0', '9', 'WITHSCORES']));
-
-            echo '</pre>';
-
-        }
+        dd(Redis::executeRaw(['georadius', 'loac:shop', '59.61103016542674', '36.31744384564267', '250', 'm', 'DESC', 'WITHDIST']));
 
     }
 }
