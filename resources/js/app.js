@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import $ from 'jquery'
 import axios from 'axios';
+// import { i } from 'vite/dist/node/types.d-FdqQ54oU';
 
 
 
@@ -37,6 +38,8 @@ const app = createApp({
         }
     },
     created(){
+
+
         window.Echo.channel('message').listen('Message', (e)=>{
             document.getElementById(e.mode_btn).innerText++
         })
@@ -56,7 +59,10 @@ const app = createApp({
             .listenForWhisper('msg_new', (e)=>{
                 console.log(e);
             });
-    }
+    },
+
+
 })
 
 app.mount('#app')
+

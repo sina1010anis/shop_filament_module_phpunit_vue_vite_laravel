@@ -10,9 +10,15 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::view('/reverb', 'reverb')->name('reverb.view');
+
 Route::post('/reverb', [ReverbController::class, 'reverb'])->name('reverb');
+
 Route::view('/reverb/input', 'reverb_input');
-Route::get('/redis', [RedisController::class, 'index']);
+
+Route::get('/redis', [RedisController::class, 'redis']);
+
+Route::get('/mysql', [RedisController::class, 'mysql']);
+
 // Route::get('/test', function (){
 
 // })
