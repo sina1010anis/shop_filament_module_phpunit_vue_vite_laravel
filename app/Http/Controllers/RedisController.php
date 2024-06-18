@@ -33,7 +33,7 @@ class RedisController extends Controller
         // Show index (end)
 
         // Search In index Redis (start)
-            dd(Redis::executeRaw(['FT.SEARCH', 'idx_shop_car', '@Descreption:%%T%%']));
+            dd(Redis::executeRaw(['FT.SEARCH', 'idx_shop_car', '@Descreption:%%T%%']))
         // Search In index Redis (end)
 
 
