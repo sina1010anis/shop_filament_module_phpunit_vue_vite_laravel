@@ -9,10 +9,14 @@ use Illuminate\Support\Facades\Redis;
 
 class RedisController extends Controller
 {
-    public function redis(Request $request)
+    public function redis()
     {
 
-        // dd(['longitude']);
+        $key = Redis::incrBy('key:test', 10);
+
+        return $key;
+
+
 
         // Build Data in Redis For RedisSearch (Start)
             // for ($i = 0 ; $i <= 150 ; $i++) {
@@ -33,7 +37,7 @@ class RedisController extends Controller
         // Show index (end)
 
         // Search In index Redis (start)
-            dd(Redis::executeRaw(['FT.SEARCH', 'idx_shop_car', '@Descreption:%%T%%']))
+            // dd(Redis::executeRaw(['FT.SEARCH', 'idx_shop_car', '@Descreption:%%T%%']))
         // Search In index Redis (end)
 
 
