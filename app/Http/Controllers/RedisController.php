@@ -9,12 +9,9 @@ use Illuminate\Support\Facades\Redis;
 
 class RedisController extends Controller
 {
+
     public function redis()
     {
-
-        $key = Redis::incrBy('key:test', 10);
-
-        return $key;
 
 
 

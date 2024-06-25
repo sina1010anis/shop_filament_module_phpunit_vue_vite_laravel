@@ -15,6 +15,8 @@ return Application::configure(basePath: dirname(__DIR__))
         then: function () {
             Route::middleware('')->group(base_path('routes/admin.php'));
         }
+    )->withRouting(
+        web:__DIR__.'/../routes/redis.php',
     )
     ->withMiddleware(function (Middleware $middleware) {
         //$middleware->web(['throttle:r-test']);
